@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Doggle</title>
+        <link rel="stylesheet" href="style2.css" />
+        <!-- <script src="script.js"></script> -->
+
+        <script type="text/javascript" src="script.js" nonce="randomValue"></script>
+
+    </head>
+
+    <body>
+        
+        <!-- <header>
+            <nav>
+                <a href="#tab1"> aboutme </a>
+                <a href="#tab2"> project </a>
+            </nav>            
+        </header> -->
+        
+        <section class="circle-image">
+
+            <div class = "tab_menu">
+                <div id="horizontal-underline"></div>
+                <input type="radio" name="tabmenu" id = "tab00" >
+                <label for="tab00">Home</label>
+                <input type="radio" name="tabmenu" id = "tab01" checked>
+                <label for="tab01">About Me</label>
+                <input type="radio" name="tabmenu" id = "tab02">
+                <label for="tab02">Projects</label>
+                
+                <div class = "conbox con1", style="text-align: left;">
+                    <div class= "left">
+                        <div class="box1">
+                            <!-- <img src="https://raoon.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F737cea16-55c2-4aef-b600-54c9f70429a6%2F%25EC%25B7%25A8%25EC%2597%2585_%25EC%2582%25AC%25EC%25A7%2584.jpg?table=block&id=0119a593-99c2-4d28-891e-bdcc864a8e47&spaceId=30867593-2bae-4abe-94be-3eb8420cbc48&width=710&userId=&cache=v2"
+                                alt="My image", style="float:left; height: 200px; width: auto; margin: 60px 0 0 200px;"> -->
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAA3lBMVEX////kTybxZirr6+vjTibxZSjrWyjr7u7kQgr39/fwWgzpyMD73NDs9PXkQQHkTSPkVivjSRvjSh3jRhXnVCfuYSnxYB3++ffxYyPjQQXwXRP99PL64NroVyf96ODwWAD2y8LnZUTtkHvr5OL87enq2dTmhW741s/1xLr71MbpclTwp5jztqjqgWvlWzjvnozqTwr4uKP2poj1lXDydELq0cvpvbPmdVzuloL0iF7pwrnvoZHq3NjysKL0u67pb0/ybTf0i2jzgFT5w7P4sZnyd0f4vq3rfmT2nX33qY7/ioncAAAMgklEQVR4nO2dbV/iuhbFQUV6VVqgKgKKoowIKB5nfEAddZwn537/L3RbOB1J2Vltkp2q99f16rw4tvwnoVnsvZIWCrly5cqVK1euXLly5cplU323WPSKr1L8b4M/1bik29cg7Lnex5Hb0yBsuMWPI7ehQVjw3/pjK8jXASyMveQrvxN5Yy3CYf2tP3hq1YdahGe1t/7gqVU71iI8/zhfRP9ci3D0gQhHWoSnH4jwVIvwxHnrD55azokWYf/jLPlapi20bW/9wVNLy7QFhHa+hyssEq9Z0yNsV22Yms3VPQatbs5f06u2tQgbXQuEK6tLLNqbH0Wvq2W87dg2LsLNeUJN0xbYtvdMOH/R+pkm4aEFY2qFsHaoSXhv4WHKRShc1L/XJLRh2+wQ6pk2O7aNiXBLWBA1TVtg25ofhLCpZ9oKhd33O0tFQn9Xk7DzfleLVYGwrmfa7Ng2G4S6pq1gpdrGRCiaNr1KWygLxtQKYVeb8Ib/i8hEKJq2G23CY37bZoNQs5YYykI9kYlQuKZmLTHUw7slFJdDXdNmxbbZINQ2bYXCAb9t4yFkMm2BbeOvttkgdHVNW1I90dHSP2s6aomEomnTrCVOhQiddS31N3Q0aCFCfUBI6B6VdfQfrQ/SWRMI98TvoQEhst7Nq/KyhvQIB4DQqxoQPgHb5txlSHgizlLRtOnWEkOhNrBznSHhxbZAKHwQA9OGbZv/kCHhZ0CoXWkLhWybf54h4ZcdgVA0bQ8GhI/AttWOK9kRfhcIY5W2RwPCA0BYv8mQ8LIkJ2weGBAi2+Z1MyT8BggNTBu2bd44u+9he0kg5DNthQb4ceFVjzIj7OwAQkezeTgjRKbG+6QziFqEu+KCH7M0JoSw2lbTsm1ahH1EqF9pC4Wqbc56ZoQ/kGnTr7SFQk1SPdumRRgzbTzt0Zkm7LZNixCaNv1KWyiU3vPvMyP8gwj1UnuRUBu4dqiz5GsRPoumTfyymJi2BNt2lhkhsqVGpg3btvpNVrO0gWypkWkLzAQYQ6+rAahFGDNtsZ8WJqYtMKaefMn3xkcEQfnKh3s/VpdKqloSAWPt0aIZYRs1Sb2vFOGnOiZUBpwyyi3NWLsBPBVM7zmkMT2CvXGOmjenacPpPUk9EXaOOQjF1J6ZacPpPdq2VZ6sE85fUDu1FwkZU/+UJIS9cQ5C4YK1iSEhSu/5I5IQ9sbZCQ1NW4Jtm1CmpjyxTchXaQuFbFvtmBrDMuyNMxDGFvwDQ8I+rCeShNeoN85PqN8Angml92jbVr6zTLjKk9qL1AMPRm+TJLyyPEuZUnuRGkWwurkk4acsCb2iUaUtFPJgLmVMl48sr4d87dGZkAejbVsF/B7hINxktaUJ9UTatqHfIxyE89ervxgTQtv2SBIit85AKFzPsJYYCto2sp5YQW6dgVBcLExNW6HwiGwb2QauINvGTWhs2nB6j662QdtmTsi01eJVA9Bgqw9JQjTs3IQGqb1IsA08JgmvXdZcWwsRGtYSQ7VR8qtG1oSP7lhzbQOxpB9rAJvVoaZChD4FGIwia66tYyu1F6kO1m//q3LZW51wA7VHNxkIkW3z1dvA6oQDew3gmaBtU0/vqRPCBrC5aWNvA6sT/kSpPXPTpmPbmAlhe9QktRcJORTatjETiu3RGKFJai8Sc3pPnfA7agCbmza86UIjvadO+As1gM1NW4Jte7JP2LCW2ouEbJs3VgVUJ+zB1B6DaSu0UT1RPb2nTNjZlhN6HgdhA7aBldN7yoS7aCPC2LiWGAptSVC3bcqEaKtF/YkDsPDCmt5TJrRu2rhtmzLhT3upvUi86T1lQoupvUgwvads25QJoS3lMG0Jtk05vadMaDG1FwnaNuX0njIhTO1xmLZgQcLGVFGqd4emrclh2gJTgfqBXtNV0z/7UnWou7fRRoQa+SfK6qEmqbKkFeHSEunAeuKCL5q2TdMG8EzQtqlKXvMufSMdGNofy2TaeI84kRPu/CJvDvfHclTaQnGevQcIb8mbx00by1l7cSFjykj4hbw53GphmtqLxHn2npxw+zN5c1hLNE3tReI8MhkQXpA3t7jV4lXItvERtuiy2S3YAcxSaQuF0nthJYGSBuGAvDnaiGCc2ouE0nvFYpWUDFFOuLZB3nwHEfLY0oRNF2PSfa7L/gQQ0v5kX/ifYrtHeUxbYA3RGPpkAvNKnXCf9CdtSMhRaZsKPUvJ9N7yV9nvETCG5K07wJZqvtWCEgqquWQ9sSwrI0sJS0vkraFp42gAzwS3lZDVtorMJEgJd76Tt0aVNjZbyprekxPSpu23/VpiKMb0npTwLU1bQrVNbdOFnDCVaeM71ESUxqYLWW9cStj6Qd4amjaeSlsoxvSenJA2bb+QpeGypfjI5DrZJJWm96SEEtMG26Ncpi1YdtXTe7JNF1LCfdK0NWB7lMu0JbSBV2jbJhl2+RiSpq2Haol6ryKjhay3d0QQLh9J/lFkhKUlutKGcol8pg1vuqjRe2UVv4elS/LGMLWnf0DyomAbmG6SSv5RZISSStsgi0pbKNgGptN7Y4dElBDurD2TN4amjavSFgql7yVt4PX7J9epLVAuEpZK22v7txf0czEj06azV3a5XK4cXU/GNV9M4MYIS9ut7cvP9GIfynpqLxJM75G2bUZZKV+dno0d/3WSzxGWdlqtyz8/4KIGU3v6ByQvCtk2nN4Lh/JqdONHEzYiDKZm6/mik7SiWU/tRYK2LTG9Vy6Xj+4mVccPKFfCczG2W2uXPzfSrNcotcdo2hJs21OasEK5Uvl6fTz2/dXgi/dnkLKE1Ia2lKd5OBN6QRl9xAk9YZevRse/FdxkrwRMm89J2N4Eh7hUyZ2kMkql+6KtFgZvtSAE28C0bZNJKYsBU3u6ryKjBQ8UVkrvKRGirRaspo0zvadEmFGlLRQ6zUMtvadEmEFqLxJM79G2jYMwg9ReJL4jk5UIM0jtRYK2TSm9p0SYSQN4JmjbzqyNIaolMqX2IsEjTp6WK+kZVQgb6CQ640NNRHVQ4MQbTtaPKuV0lKkJ24P/ir8s4oea8NUSQ+H0Xt13qjenV5U0Q5mOsHNx+621LQLGDzXhNG0JRyZPbxhSHl6H77wwJWwP/pRarZ3YQXsLhJyVtlBp8olezXGGoys8YTFhY+Pn7X5re5EulJ3UXiRkTGMTdnz8+Ek+YQFh58eXb2vxqTknvrdaUFJ4c24wlPXu+V2ZHkoZ4eDz5Y5s8ChCttReJHgIG0HpO+7Nw6flRUqKsPP7dn9tO37E5YKEOzCbNq30Xt13x5Prr7FnT5ywN/hzud+ST8052WoAz6T3grJgwnrD+/Xy3LdSINz4+b2UMDVlhMymLSm9hyDrvl98eR3Kv4S9H1+CLx6xKMjEekDyojZMXlDm1R13fH43XSynhIFfCadmerpFQpb9sfNC9cR0lL5TfHm4Wg487sVzaS311HwV41stKDUYXjIXTtju8yXpV9QJmQHxIS4qlKtadKH2LBOCiqmKDE5R4j5rLy6mbSUGhKJp49kBPC+mTRcGhMJ12E2bsm2zTchu2tg2XbARcps2nN7LgHB1T7wOY2ovEtObc3UIt1Y3V1ZWxOuwbbV4VZ9nQVQl3AoGL04XirUBPBN+r6wdwq29xcGLCLlNW8LZexYIg6lJDt6/4ttq8VcNtCWBm3CLnpqvMnwVGU3Isxs4mRBMzTlC3gbwTDx7ZTFhwtR8lfFbLSgpVNv0CKdTMw1e0fD9sTLx2DYJIbXkQULO1F6kc5djEAnCrcTnyoLqLmdqL1JnNHSbi3FKQ8LU37y/8mpNd/jAvxxO1TiYjH0HHWiqRKhD5/jjyYGF5+icdk9fqq6vPWH/EqZaFATVfbd69sjbNZSo3Z/mf/UJ1QevWHPcp1Gf38jI1Ts5dlxffcKurEqstFxeMHjO4UmWdJF2H4YeEeVOQFTE853i8IG7+qug3sGk29ScsMl0NafZnRxYemymV6Nzeua7PucpPVO84JrHjz27j830avTvx77yhJXTBYtCd8T/G9dQwbNHSOXr0oV98sOTN5+atBq7oxe/aTBhg6lZe3nYfS9Tk1b74Lzq6vieYGq61fNMlzx9dR5fimoTNpiaK2eP73Rq0gqePcOUz57ASteGo/77npq0eieHiRZ2Gmd4+yXPQLsPgYWVPHvCSMrwNBMrbVfBb67uwoQNniu17vnBW382Pu0+ns1N2PB30PHJ/8Hgifr3N1e4KAxH73zJ01f75Lhq+yd6rly5cuXKlStXrly5ctnQ/wAE7KoE1+yTQgAAAABJRU5ErkJggg=="
+                                alt="My image", style="float:left; height: 200px; width: auto; margin:0 0 0 0;">
+                            <div style="margin: 0; ">
+                                <p><span style="font-size: 30px; font-weight: 1000;">이 도 현 &nbsp; Lee Dohyun</span></p>
+                                <br/>
+                                <ul style="margin-left: -40px; line-height: 35px; ">
+                                    <span style="font-size: 20px; font-weight: 1000;">Education</span> 
+                                    <li style="margin-left: 20px;"> 충북대학교 정보통계학과 학사</li>
+                                    <li style="margin-left: 20px;"> 충북대학교 통계학과 석사</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="box2">
+                            <table class="table_design">
+                                <tr>
+                                    <td>논문</td>
+                                    <td>연구과제</td>
+                                    <td>프로젝트</td>
+                                    <td>Programmers</td>
+                                    <td>Competition</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>3</td>
+                                    <td>2</td>
+                                    <td>12</td>
+                                    <td>5</td>
+                                </tr>
+                            </table>
+
+                            <div style="margin: 0 0 0 0;">
+                                <input type="radio" name="tabmenu2" id = "tab01-1" checked>
+                                <label for="tab01-1" class="tab_title">논문</label>
+                                <input type="radio" name="tabmenu2" id = "tab01-2">
+                                <label for="tab01-2" class="tab_title">연구과제</label>
+                                <input type="radio" name="tabmenu2" id = "tab01-3">
+                                <label for="tab01-3" class="tab_title">프로젝트</label>
+                                <input type="radio" name="tabmenu2" id = "tab01-4">
+                                <label for="tab01-4" class="tab_title">Programmers</label>
+                                <input type="radio" name="tabmenu2" id = "tab01-5">
+                                <label for="tab01-5" class="tab_title">Competition</label>
+
+                                <div class = "conbox2 con1-1">
+                                    123
+                                </div>
+                                <div class = "conbox2 con1-2">
+                                    456
+                                </div>
+                                <div class = "conbox2 con1-3">
+                                    789
+                                </div>
+                                <div class = "conbox2 con1-4">
+                                    987
+                                </div>
+                                <div class = "conbox2 con1-5">
+                                    654
+                                </div>
+                            </div>
+                        </div>
+
+
+                            <!-- <br/>
+                            <ul>
+                                <span style="font-size: 20px; font-weight: 1000; margin-left: 160px;">License</span>
+                                <li style="margin-left: 180px;"> 정보처리기사 </li>
+                                <li style="margin-left: 180px;"> 빅데이터 분석기사 </li>
+                                <li style="margin-left: 180px;"> SQDL </li>
+                                <li style="margin-left: 180px;"> SAS Base Programmer Certification </li>
+                                <li style="margin-left: 180px;"> 사회조사분석사 2급 </li>
+                                <li style="margin-left: 180px;"> Etc(워드프로세서1급, 컴퓨터활용능력2급, ITQ) </li>
+                            </ul> -->
+                        
+                    </div>
+
+                    <div class = "right">
+                        <div style="width: 50%; margin: auto;">
+                            <canvas id="myRadarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class = "conbox con2">
+                    
+                </div>
+            </div>
+
+
+            <div>
+                <div style="text-align: center;">
+                    데이터 속을 유영하는 Data Analyst & Scientist<br/>
+                    <span style="font-size: 4em; "> I'm&nbsp; Lee&nbsp; Do&nbsp; Hyun</span><br/><br/>
+                
+                    <span style="font-weight: 500; ">
+                        안녕하세요, 데이터의 숨겨진 정보를 찾기 위해 <br/> 
+                        데이터 속을 유영하는 데이터 분석가이자 사이언티스트 <br/>
+                        이도현 입니다.
+                    </span>
+                </div>
+            </div>
+
+        </section>    
+
+
+        <footer> 
+            <div>
+                <a href = "https://github.com/RaOOns" style="text-decoration: none;">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github" class = "hyper-image" style="height: 25px; width: 25px;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+                <a href = "https://www.notion.so/DATA-ANALYST-STATISTICIAN-f9e4c280cf0d4d44a801586241258a02" style="text-decoration: none;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion" class = "hyper-image">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+                <a href = "https://laoonlee.tistory.com/" style="text-decoration: none;">
+                    <img src="https://t1.daumcdn.net/tistory_admin/static/top/favicon_0630.ico" alt="Ti-stroy" class = "hyper-image">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+                <a href = "https://www.instagram.com/le_2ee/" style="text-decoration: none;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class = "hyper-image">
+                </a>
+            </div>
+            <p style="font-family: sans-serif; font-size: 15px; ">
+                dhguslee@naver.com
+            </p> 
+
+        </footer>
+
+    </body>
+</html>
