@@ -375,12 +375,7 @@ h3 {
         padding: 3% 0; /* 패딩 조정 */
     }
 
-    .box {
-        display: flex; /* 박스 내부의 flex 속성 조정 */
-        flex-direction: column; /* 세로로 정렬 */
-        height: 100vh; /* 뷰포트 높이로 설정하여 화면 전체 사용 */
-        overflow-y: auto; /* 내용이 넘칠 경우 스크롤 생성 */
-    }
+
 
 }
 
@@ -430,12 +425,7 @@ h3 {
         padding: 2% 0; /* 패딩 조정 */
     }
 
-    .box {
-        display: flex; /* 박스 내부의 flex 속성 조정 */
-        flex-direction: column; /* 세로로 정렬 */
-        height: 100vh; /* 뷰포트 높이로 설정하여 화면 전체 사용 */
-        overflow-y: auto; /* 내용이 넘칠 경우 스크롤 생성 */
-    }
+
 }
 
 @media (max-width: 480px) {
@@ -481,10 +471,4 @@ h3 {
         padding: 1% 0; /* 패딩 조정 */
     }
 
-    .box {
-        display: flex; /* 박스 내부의 flex 속성 조정 */
-        flex-direction: column; /* 세로로 정렬 */
-        height: 100vh; /* 뷰포트 높이로 설정하여 화면 전체 사용 */
-        overflow-y: auto; /* 내용이 넘칠 경우 스크롤 생성 */
-    }
 }
