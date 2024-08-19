@@ -379,3 +379,38 @@ h2{
 h3{
     color: rgb(82, 81, 81);
 }
+
+/* 미디어 쿼리 */
+@media (max-width: 768px) {
+    .left, .right {
+        float: none;
+        width: 100%;
+    }
+
+    .image-grid-item, .grid-item {
+        flex: 1 1 calc(50% - 10px);
+    }
+
+    header, footer {
+        text-align: center;
+    }
+
+    .header-btn, .close-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-font {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-grid-item, .grid-item {
+        flex: 1 1 100%;
+    }
+
+    .footer-font {
+        font-size: 10px;
+    }
+}
