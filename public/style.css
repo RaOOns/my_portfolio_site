@@ -354,6 +354,18 @@ h3 {
         width: 100%; /* 너비를 100%로 설정하여 세로 배치되도록 */
         float: none; /* float을 없애어 세로로 배치되도록 */
     }
+
+    .introduction-box, .myimage-box, .info-table, .info-box {
+        width: 80%;
+        height: auto; /* 높이를 자동으로 조정 */
+        top: auto; /* 수직 위치를 조정 */
+        left: 10%; /* 왼쪽 여백 조정 */
+    }
+
+    .info-table {
+        padding: 3% 0; /* 패딩 조정 */
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -389,6 +401,16 @@ h3 {
         width: 100%; /* 너비를 100%로 설정하여 세로 배치되도록 */
         float: none; /* float을 없애어 세로로 배치되도록 */
     }
+
+    .introduction-box, .myimage-box, .info-table, .info-box {
+        width: 90%;
+        top: auto; /* 수직 위치 조정 */
+        left: 5%; /* 왼쪽 여백 조정 */
+    }
+
+    .info-table {
+        padding: 2% 0; /* 패딩 조정 */
+    }
 }
 
 @media (max-width: 480px) {
@@ -420,5 +442,15 @@ h3 {
         position: relative; /* position을 relative로 변경 */
         width: 100%; /* 너비를 100%로 설정하여 세로 배치되도록 */
         float: none; /* float을 없애어 세로로 배치되도록 */
+    }
+
+    .introduction-box, .myimage-box, .info-table, .info-box {
+        width: 100%;
+        top: auto; /* 수직 위치 조정 */
+        left: 0; /* 왼쪽 여백 조정 */
+    }
+
+    .info-table {
+        padding: 1% 0; /* 패딩 조정 */
     }
 }
