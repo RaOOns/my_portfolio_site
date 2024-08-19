@@ -375,7 +375,12 @@ h3 {
         padding: 3% 0; /* 패딩 조정 */
     }
 
-
+    .box {
+        display: flex;
+        flex-direction: column; /* 기본적으로 세로로 정렬 */
+        height: auto; /* 기본 높이 설정 */
+        /* overflow: visible; 기본적으로 스크롤이 없도록 설정 */
+    }
 
 }
 
@@ -425,7 +430,12 @@ h3 {
         padding: 2% 0; /* 패딩 조정 */
     }
 
-
+    .box {
+        display: flex;
+        flex-direction: column; /* 기본적으로 세로로 정렬 */
+        height: auto; /* 기본 높이 설정 */
+        /* overflow: visible; 기본적으로 스크롤이 없도록 설정 */
+    }
 }
 
 @media (max-width: 480px) {
@@ -471,4 +481,10 @@ h3 {
         padding: 1% 0; /* 패딩 조정 */
     }
 
+    .box {
+        display: flex;
+        flex-direction: column; /* 기본적으로 세로로 정렬 */
+        height: auto; /* 기본 높이 설정 */
+        /* overflow: visible; 기본적으로 스크롤이 없도록 설정 */
+    }
 }
