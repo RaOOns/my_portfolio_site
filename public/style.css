@@ -5,6 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -22,22 +23,25 @@ section {
     position: relative;
 }
 
+/* Section에 배경 추가 가상요소(::before) 사용 시 구조를 무너뜨리지 않을 수 있음 */
 section::before {
-    height: 700px;
-    width: 700px;
-    content: "";
+    height: 44rem;                      /* 가상 요소의 높이와 넓이 != 이미지의 크기 */
+    width: 44rem;                   
+    content: "";                        /* 가상 요소의 텍스트 콘텐츠는 비움 즉, 시각적 목적으로만 활용 */
     background-image: url(https://avatars.githubusercontent.com/u/79679194?v=4);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    opacity: 0.25;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+    background-size: cover;             /* 이미지가 가상 요소 크기에 맞게 조절 */
+    background-position: center;        /* 이미지를 가상 요소의 가운데 맞춤*/
+    background-repeat: no-repeat;       /* 이미지가 반복 되어 나타나지 않게 조정 */
+    border-radius: 50%;                 /* 가상 요소의 모서리를 둥굴게 */
+    opacity: 0.25;                      /* 가상 요소의 투명도 */
+    position: absolute;                 /* 가상 요소의 위치를 다른 요소으로부터 독립적으로 배치 */
+    top: 50%;                           /* 가상 요소를 부모 요소의 세로 중앙에 위치 (가상 요소의 왼쪽 위 모서리 기준인듯) */
+    left: 50%;                          /* 가상 요소를 부모 요소의 가로 중앙에 위치 (가상 요소의 왼쪽 위 모서리 기준인듯) */
+    transform: translate(-50%, -50%);   /*중앙에 맞추기 위해 이동 */
+    z-index: 1;                         /* 가상 요소의 쌓임? 순서 */
+    
 }
+
 
 section > * {
     position: relative;
@@ -57,35 +61,40 @@ footer {
 
 /* Header 부분 =========================================================================== */
 .header-btn {
-    margin: 0 20px; /* 수정된 여백 */
-    padding: 0px;
-    cursor: pointer;
+    margin: 0 50px;                 /* margin: 바깥 여백 (all) (상하,좌우) (상, 좌우, 하) (상,우,하,좌) */
+    padding: 0px;                   /* padding: 안쪽 여백 */
+    cursor: pointer;                /* 마우스 올릴 시 포인트 변화 */
     background-color: white;
     border: none;
+    /* font-size: 25px; */
     font-size: 1.5rem;
     font-weight: 600;
     color: black;
+    
 }
 
+/* header-btn에 마우스 올렸을 시 변화 */
 .header-btn:hover {
-    text-decoration: underline;
-    text-decoration-color: red;
-    text-decoration-thickness: 5px;
+    text-decoration: underline;         /* 밑줄 추가 */
+    text-decoration-color: red;       /* 밑줄 색상 */
+    text-decoration-thickness: 5px;     /* 밑줄 두께 */
 }
 
+/* header-btn이 눌리는 순간의 변화 */
 .header-btn:active {
-    transform: scale(0.90);
+    transform: scale(0.90);             /* 버튼을 축소 */
 }
+
+
 
 /* Section 부분 ======================================================================= */
 .box {
     height: 100%;
-    display: none;
+    display: none;          /* 처음에 보이지 않게 설정 */
 }
 .box.active {
-    display: block;
+    display: block;         /* 활성화된 박스만 보이게 설정 */
 }
-
 
 div.left {
     display: flex;
@@ -132,8 +141,8 @@ div.right {
     padding: 20% 0;
     background-color: lightgray;
     text-align: center;
-    table-layout: fixed;
-    border-collapse: collapse;
+    table-layout: fixed;                /* 고정 레이아웃을 사용하여 셀 너비를 균등하게 분배 */
+    border-collapse: collapse;          /* 테두리 겹침을 없애기 위해 collapse 설정 */
 }
 
 .info-box {
@@ -168,7 +177,7 @@ input[id*="tab"]:checked + label {
 }
 
 .conbox {
-    position: absolute; 
+    position: relative; 
     width: 100%; 
     height: 100%;
     display: none; 
@@ -232,38 +241,46 @@ input[id="tab3"]:checked ~ .con3 {
 }
 
 /* "Section - Project" ============================================================== */
+/* Box를 2x4 Grid 레이아웃을 담을 공간 만들기 */
 .grid-container {
     display: grid;
     background-color: white;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    width: 90%;
-    height: 90%;
-    column-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);  /* 5개의 동일한 너비의 그리드 열 생성 */
+    grid-template-rows: repeat(2, 1fr);     /*2개의 동일한 높이의 그리드 행 생성  */
+    /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 변경됨 */
+    width: 90%;                             /* 그리드 레이아웃 너비를 부모 요소의 100% 사용 */
+    height: 90%;                            /* 그리드 레이아웃 높이를 부모 요소의 100% 사용 */
+    column-gap: 20px;                       /* 그리드 아이템 간 간격 */
     row-gap: 0px;
-    padding: 20px 30px;
-    box-sizing: border-box;
-    overflow: hidden;
+    /* row-gap: 20px; */
+    padding: 20px 30px;                     /* 그리드 레이아웃 내의 내부 여백 */
+    box-sizing: border-box;                 /* 패딩이 전체 크기에 포함되도록 설정 */
+    overflow: hidden;                       /* 그리드 경계를 벗어나는 것을 방지 */
     margin: 0 0 0 5%;
 }
 
-.grid-item {
-    border: 5px solid gray;
+/* 그리드 각 아이템(칸)에 적용될 옵션 */
+.grid-item { 
+    /* background-color: white;           배경색을 추가 */
+    border: 5px solid gray;             /* 경계를 추가 */
     margin: 12% 0 0 0;
+    display: flex;                        /* 내부 요소가 중앙에 배치되도록 설정 */
     justify-content: center;
     align-items: center;
     text-align: center;
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
+    max-width: 100%; /* 그리드 아이템의 최대 너비를 그리드 셀 크기로 제한 */
+    max-height: 100%; /* 그리드 아이템의 최대 높이를 그리드 셀 크기로 제한 */
+    position: relative; /* 포지션을 relative로 설정하여 내부 요소의 절대 위치 설정 가능 */
     cursor: pointer;
 }
 
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    position: absolute;
+
+.project-img{
+    width: 100%; /* 이미지의 너비를 그리드 아이템의 너비에 맞춤 */
+    height: 100%; /* 이미지의 높이를 그리드 아이템의 높이에 맞춤 */
+    /* object-fit: contain; 이미지가 그리드 아이템을 채우도록 설정, 비율이 맞지 않으면 잘림 */
+    object-fit: cover;                   /* 이미지 비율을 유지하며, 그리드 아이템을 채우도록 설정 */
+    position: absolute; /* 이미지의 위치를 절대적으로 설정 */
     top: 0;
     left: 0;
 }
@@ -282,16 +299,16 @@ input[id="tab3"]:checked ~ .con3 {
 
 /* 특수 기능 ========================================================================= */
 .close-btn {
-    position: absolute;
+    position: absolute; /* 절대 위치 */
     top: 5px;
-    right: 5%;
-    width: 5vw;
-    height: 5vw;
-    background-color: rgba(255, 255, 255, 0);
-    font-size: 1.5rem;
+    right: 5%; /* 비율로 설정하여 위치가 화면 크기에 따라 조정되도록 */
+    width: 5vw; /* 화면 너비의 5%로 설정 */
+    height: 5vw; /* 화면 너비의 5%로 설정 */
+    background-color: rgba(255, 255, 255, 0); /* 투명 배경 유지 */
+    font-size: 1.5rem; /* 반응형 폰트 크기 */
     font-weight: 700;
     text-decoration: underline;
-    border: 1px solid rgba(255, 255, 255, 0);
+    border: 1px solid rgba(255, 255, 255, 0); /* 투명 테두리 유지 */
     text-align: center;
     cursor: pointer;
 }
@@ -347,10 +364,12 @@ h3 {
     }
     
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        column-gap: 10px;
-        row-gap: 10px;
+        grid-template-columns: repeat(2, 1fr);  /* 2개의 열로 조정 */
+        grid-template-rows: repeat(auto-fill, minmax(200px, 1fr)); /* 행의 높이를 자동으로 조정 */
+        column-gap: 15px;                       /* 열 간격 조정 */
+        row-gap: 15px;                          /* 행 간격 조정 */
+        margin: 0;                             /* 여백 조정 */
+        padding: 10px;                         /* 내부 여백 조정 */
     }
 
     .close-btn {
@@ -377,11 +396,12 @@ h3 {
     }
 
     .grid-container {
-        grid-template-rows: repeat(6, auto);
-        column-gap: 5px;
-        row-gap: 5px;
+        grid-template-columns: 1fr;            /* 1개의 열로 설정 */
+        grid-template-rows: repeat(auto-fill, minmax(150px, 1fr)); /* 행의 높이를 자동으로 조정 */
+        column-gap: 10px;                       /* 열 간격 조정 */
+        row-gap: 10px;                          /* 행 간격 조정 */
+        padding: 5px;                          /* 내부 여백 조정 */
     }
-
     .header-btn {
         width: 100%; /* 버튼 크기 조정 */
     }
