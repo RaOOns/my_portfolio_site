@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const spiderChart = new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['Python', 'R', 'SAS', 'SQL', 'JS/CSS', "Spotfire", "Tableau"],
+            labels: ['Python', 'R', 'SAS', 'SQL', 'HTML/CSS/JS', "Spotfire", "Tableau"],
             datasets: [{
                 label: '',
                 data: [99, 90, 70, 85, 60, 90, 75],
