@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+@font-face {
+    font-family: 'Gmarket Sans';
+    src: url('path-to-your-font-file/gmarket-sans.woff2') format('woff2'),
+         url('path-to-your-font-file/gmarket-sans.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
 
 /* 화면 틀 구성 ======================================================================================== */
 body, html {
@@ -19,7 +26,7 @@ header {
 
 section {
     height: 83%;
-    overflow: auto;
+    /* overflow: auto; */
     position: relative;
 }
 
@@ -117,6 +124,8 @@ div.right {
     height: 100%;
     float: right;
     box-sizing: border-box;
+    flex-direction: column;   /* 세로 방향으로 배치 */
+    align-items: center;      /* 수평 가운데 정렬 */
 } 
 
 
@@ -142,10 +151,10 @@ div.right {
     position: absolute;
     width: 80%;
     height: 10%;
-    top: 32%; /* 비율 기반 위치 */
+    top: 33%; /* 비율 기반 위치 */
     left: 20%; /* 비율 기반 위치 */
-    padding: 5% 0; /* 비율 기반 패딩 */
-    background-color: lightgray;
+    padding: 10% 0; /* 비율 기반 패딩 */
+    background-color: whitesmoke ;
     text-align: center;
     table-layout: fixed;
     border-collapse: collapse;
@@ -155,19 +164,19 @@ div.right {
     position: absolute;
     width: 80%;
     height: 40%;
-    top: 45%; /* 비율 기반 위치 */
+    top: 50%; /* 비율 기반 위치 */
     left: 20%; /* 비율 기반 위치 */
     box-sizing: border-box;
 }
 
 label[for*="tab"] {
     display: inline-block;
-    width: 150px;
-    height: 30px;
+    width: 9.375rem;
+    height: 1.57rem;
     margin: 0px;
-    padding: 5px 3px;
+    padding: 0.3rem 0.18rem;
     cursor: pointer;
-    background-color: rgb(235, 235, 235);
+    background-color:whitesmoke;
     color: black;
     border: 1px solid gray;
     text-align: center;
@@ -203,7 +212,7 @@ input[id="tab3"]:checked ~ .con3 {
 .info-grid-container {
     display: grid;
     grid-template-columns: 21% 79%;
-    grid-auto-rows: 45px;
+    grid-auto-rows: 2.8rem;
     width: 100%;
     height: 100%;
     gap: 1px;
@@ -221,30 +230,45 @@ input[id="tab3"]:checked ~ .con3 {
 }
 
 .chart-container {
-    position: absolute;
-    width: 600px;
-    height: 800px;
-    margin: 0 0 0 8%;
-    padding: 0px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.image-grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 150px);
-    grid-auto-rows: 150px;
-    gap: 10px;
-    margin: 5% 0;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.image-grid-item {
     display: flex;
+    position: relative;
+    width: 100%;
+    height: 70%;
+    margin: 0 0 0 0;
+    padding: 0;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    /* background-color: red; */
+}
+
+.donutChart-grid-container {
+    display: grid;
+    width: 70%;
+    height: 25%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    /* background-color: blue; */
+}
+
+.donutChart-grid-item {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    align-items: center;
+    text-align: center;
+    /* background-color: yellow; */
+}
+
+.donutChart-grid-item canvas {
+    max-width: 100%;             /* 캔버스가 부모 아이템의 최대 너비를 초과하지 않도록 설정 */
+    max-height: 90%;            /* 캔버스가 부모 아이템의 최대 높이를 초과하지 않도록 설정 */
 }
 
 /* "Section - Project" ============================================================== */
@@ -257,10 +281,10 @@ input[id="tab3"]:checked ~ .con3 {
     /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 변경됨 */
     width: 90%;                             /* 그리드 레이아웃 너비를 부모 요소의 100% 사용 */
     height: 90%;                            /* 그리드 레이아웃 높이를 부모 요소의 100% 사용 */
-    column-gap: 20px;                       /* 그리드 아이템 간 간격 */
-    row-gap: 0px;
+    column-gap: 3rem;                       /* 그리드 아이템 간 간격 */
+    row-gap: 1rem;
     /* row-gap: 20px; */
-    padding: 20px 30px;                     /* 그리드 레이아웃 내의 내부 여백 */
+    padding: 1.25rem 1.875rem;                     /* 그리드 레이아웃 내의 내부 여백 */
     box-sizing: border-box;                 /* 패딩이 전체 크기에 포함되도록 설정 */
     /* overflow: hidden;                       그리드 경계를 벗어나는 것을 방지 */
     overflow: visible; /* 그리드 아이템이 부모 요소를 벗어나더라도 표시되도록 설정 */
@@ -271,7 +295,7 @@ input[id="tab3"]:checked ~ .con3 {
 .grid-item { 
     /* background-color: white;           배경색을 추가 */
     height: auto; /* 높이를 자동으로 설정하여 콘텐츠에 맞게 조정 */
-    border: 5px solid gray;             /* 경계를 추가 */
+    border: 3px solid gray;             /* 경계를 추가 */
     margin: 12% 0 0 0;
     display: flex;                        /* 내부 요소가 중앙에 배치되도록 설정 */
     justify-content: center;
@@ -296,12 +320,12 @@ input[id="tab3"]:checked ~ .con3 {
 
 /* Footer에 들어갈 이미지 ============================================================= */
 .hyper-image {
-    width: 40px;
+    width: 2.25rem;
     height: auto;
 }
 
 .footer-font {
-    font-size: 1.375rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: white;
 }
