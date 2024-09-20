@@ -1,235 +1,218 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Doggle</title>
+<!DOCTYPE html>     <!--DTD(문서 형태 정의): HTML이 어떤 문서 형식을 따를지 정의하며, HTML5이후로는 항상 이와 같이 정의-->
+<html lang="ko">    <!--html의 시작을 의미, 속성인 lang="ko"는 주 언어가 한글임을 의미-->
+<head>              <!--head: HTML문서의 metadata를 정의하는 영역-->
+    <meta charset="UTF-8">                                                  <!--허용하는 문자 집합을 정의-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!--화면의 너비를 맞추기 위한 메타데이터 태그-->
+    <title>Doggle</title>                                                   <!--문서의 제목을 지정, 반드시 1개의 title 태그를 사용(중복되면 안됨)-->
 </head>
 
-
-
 <body>
-    <header>
-        <button class = "header-btn" onclick="showBox('box1')">About me</button>
-        <button class = "header-btn" onclick="showBox('box2')">Project</button>
-    </header>
 
-    <section>
-        <div class="box box1" id="box1">
-            <div class = "left">
-                <!-- About Me - left -->
-                <div class="introduction-box">
-                        <h1 style = "display: inline-block;">이도현 </h1> <h2 style = "display: inline-block;">Lee Dohyun </h2>
-                        <h3>정보통계학과 학사 | 충북대학교 <br/>
-                            통계학과 석사 | 충북대학교 <br/>
-                            경력 1년차 | Data Scientist | Data Analyst | Statistician</h3>
+    <main>
+        <header>
+            <button class = "header-btn" onclick = "showContainer('AM-container')"> About me </button>
+            <button class = "header-btn" onclick = "showContainer('PJ-container')"> Project </button>
+        </header>
 
-                </div>
-
-                <div class="myimage-box">
-                    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbBPLJD%2FbtsIQI2JUxj%2F00C8MvtEzkgPiK5UmnUuyK%2Fimg.png"
-                         alt="내 사진" style="width: 100%;height: auto;"> 
-                </div>
-
-                <table class="info-table">
-                    <tr style="font-size: 1.1rem; font-weight: 600;">
-                        <td>논문</td>
-                        <td>연구과제</td>
-                        <td>프로젝트</td>
-                        <td>자격증</td>
-                        <td>Competition</td>
-                    </tr>
-                    <tr style="font-size: 3rem; font-weight: 900; font-family: 'Gmarket Sans', sans-serif;">
-                        <td style="color:darkred">4</td>
-                        <td style="color:darkred">5</td>
-                        <td style="color:#483D8B">2</td>
-                        <td style="color:#006400">5</td>
-                        <td style="color:#006400">5</td>
-                    </tr>
-                </table>
-
-                <div class="info-box">
-                    <input type="radio" name="tabmenu" id = "tab1" checked>
-                    <label for="tab1"> 특징</label>
-                    <input type="radio" name="tabmenu" id = "tab2">
-                    <label for="tab2"> 경력</label>
-                    <input type="radio" name="tabmenu" id = "tab3">
-                    <label for="tab3"> 대학원</label>
-
-                    <div class = "conbox con1">
-                        <div class="info-grid-container">
-                            <div class="info-grid-item">출생</div>
-                            <div class="info-grid-item" style="justify-content: right;">1994.04.15</div>
-                            <div class="info-grid-item" >MBTI</div>
-                            <div class="info-grid-item" style="justify-content: right;">INTJ</div>
-                            <div class="info-grid-item">취미</div>
-                            <div class="info-grid-item" style="justify-content: right;">독서 | 공부 | 운동 | 여행</div>
-                            <div class="info-grid-item"> Skills  </div>
-                            <div class="info-grid-item" style="justify-content: right;">
-                                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxgNt6%2FbtsIMDnX3rc%2FWVUKwILNcsHsfTud9kuoZ0%2Fimg.png"
-                                 alt="Python" style="width: 30px;height: 30px; margin: 0 10px">
-                                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc9UdQI%2FbtsIOSX6fEA%2FIC8Ek7YUM3DxbqD9SyR3w0%2Fimg.webp"
-                                 alt="R" style="width: 30px;height: 30px; margin: 0 10px">
-                                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbCNHGn%2FbtsIOlmbbI6%2F3Mf86sN2vYZNpbF0LuKdc1%2Fimg.png"
-                                 alt="SAS" style="width: 30px;height: 30px; margin: 0 10px">
-                                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcZwZK6%2FbtsINwPrYLK%2FhuNNUgDsX2ITRRHbV2F6Nk%2Fimg.png"
-                                 alt="SQL" style="width: 30px;height: 30px; margin: 0 10px">
-                                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlRPRu%2FbtsIMbFxCUU%2Fjqv1PvimggATKCaecd6810%2Fimg.png"
-                                 alt="HTML/JS/CSS" style="width: 30px;height: 30px; margin: 0 10px"> 
-                                &nbsp;|&nbsp;
-                                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcE5TWa%2FbtsIMxO7VIC%2FIAbX7tmdN1zZxREg9vEtm0%2Fimg.png"
-                                 alt="Spotfire" style="width: 30px;height: 30px; margin: 0 10px"> 
-                                <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcfHtqN%2FbtsIOHoVCpj%2FTlMklMOpN4U0P7blwHUGmk%2Fimg.png"
-                                 alt="Tableau" style="width: 30px;height: 30px; margin: 0 10px"> 
-                            </div>
-
-                            <div class="info-grid-item" style="grid-row: span 3;">자격증</div>
-                            <div class="info-grid-item" style="justify-content: right; text-align: right; grid-row: span 3;">
-                                빅데이터 분석기사<br/>
-                                정보처리기사<br/>
-                                SQLD<br/>
-                                SAS BaseCertification Programmer<br/>
-                                사회조사분석사 2급
-                            </div>
-                        </div>
+        <section>
+            <div id = "AM-container">
+                <div id = "AM-left">
+                    <div class = "grid-item">
+                        <p>
+                            <h1>이도현 </h1> <h2>Lee Dohyun </h2>
+                            <h5>정보통계학과 학사 | 충북대학교 <br/>
+                                통계학과 석사 | 충북대학교 <br/>
+                                경력 1년차 | Data Scientist | Data Analyst | Statistician</h5>
+                        </p>
                     </div>
-                    <div class = "conbox con2">
-                        <div class="info-grid-container">
-                            <div class="info-grid-item" style="grid-row: span 2;">프리랜서</div>
-                            <div class="info-grid-item" style="grid-row: span 2;">
-                                P&D solution | 2023.11 - 2024.02<br/>
-                                충남대학교 데이터 기반 학생 학업 모니터링 및 예측 시스템 구축 사업
-                            </div>
-                            <div class="info-grid-item" style="grid-row: span 2;">프리랜서</div>
-                            <div class="info-grid-item" style="grid-row: span 2;">
-                                P&D solution | 2024.07 - 2024.08<br/>
-                                Spotfire 전처리 모듈 개발
-                            </div>
-                        </div>
-                    </div>
-                    <div class = "conbox con3">
-                        <div class="info-grid-container">
-                            <div class="info-grid-item" style="grid-row: span 4;">논문 | SCIE</div>
-                            <div class="info-grid-item" style="grid-row: span 4; font-size: 1rem;">
-                                1. Evaluation of Odor Prediction Model Performance and Variable Importance according to Various Missing Imputation Methods<br/>
-                                2. Prediction of Complex Odor from Pig Barn Using Machine Learning and Identifying the Influence of Variables Using Explainable Artificial Intelligence<br/>
-                                3. Estimating Chlorophyll-a Concentration from Hyperspectral Data Using Various Machine Learning Techniques: A Case Study at Paldang Dam, South Korea
-                            </div>
-                            <div class="info-grid-item">논문 | SCOPUS</div>
-                            <div class="info-grid-item" style="font-size: 1rem;">Multiclass Classification by Various Machine Learning Algorithms and Interpretation of the Risk Factors of Pedestrian Accidents Using Explainable AI</div>
-                            <div class="info-grid-item" style="grid-row: span 3;">연구과제</div>
-                            <div class="info-grid-item" style="grid-row: span 3;">
-                                1. 데이터 기반 복합악취 예측 및 생산성 비교분석<br/>
-                                2. 녹조 예측 기계학습 모델<br/>
-                                3. 인공지능 기법을 활용한 보 구간 물환경 데이터 통합분석 연구<br/>
-                                4. 식자재 수요예측을 위한 통계분석 컨설팅<br/>
-                                5. 노지 채소 관비재배를 위한 양.수분 정밀제어기술 개발
-                            </div>
-                        </div>
+
+                    <div class = "grid-item">
+                        <img src="./img/myprofile_img.png" alt="It's me!">
                     </div>
                     
+                    <div class = "grid-item2">
+                        <div class="table-container">
+                            <table>
+                                <tr>
+                                    <td>논문</td>
+                                    <td>연구과제</td>
+                                    <td>프로젝트</td>
+                                    <td>자격증</td>
+                                    <td>Competition</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style="color:darkred">4</td>
+                                    <td style="color:darkred">5</td>
+                                    <td style="color:#483D8B">2</td>
+                                    <td style="color:#006400">5</td>
+                                    <td style="color:#006400">5</td>
+                                </tr>                            
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class = "grid-item2">
+                        <div class = "conbox-container">
+                            <input type="radio" name="tabmenu" id = "tab1" checked>
+                            <label for="tab1"> 특징</label>
+                            <input type="radio" name="tabmenu" id = "tab2">
+                            <label for="tab2"> 경력</label>
+                            <input type="radio" name="tabmenu" id = "tab3">
+                            <label for="tab3"> 대학원</label>
+                        
+                            <div class = "conbox con1">
+                                <div class="grid-item">출생</div>
+                                <div class="grid-item">1994.04.15</div>
+                                <div class="grid-item">MBTI</div>
+                                <div class="grid-item">INTJ</div>
+                                <div class="grid-item">취미</div>
+                                <div class="grid-item">독서 | 공부 | 운동 | 여행</div>
+                                <div class="grid-item"> Skills  </div>
+                                <div class="grid-item">
+                                    <i class="fa-brands fa-python"></i>
+                                    <img src="./img/rstudioide.svg" alt="R studio">
+                                    <img src="./img/sas.png" alt="SAS">
+                                    <i class="fa-solid fa-database"></i>
+                                    <img src="./img/html_css_js.png" alt="HTML/JS/CSS"> 
+                                    &nbsp;|&nbsp;
+                                    <img src="./img/spotfire.png" alt="Spotfire"> 
+                                    <img src="./img/tableau.svg" alt="Tableau"> 
+                                </div>
+                                <div class="grid-item">자격증</div>
+                                <div class="grid-item">
+                                    빅데이터 분석기사<br/>
+                                    정보처리기사<br/>
+                                    SQLD<br/>
+                                    SAS BaseCertification Programmer<br/>
+                                    사회조사분석사 2급
+                                </div>
+                            </div>
+                            <div class = "conbox con2">
+                                <div class="grid-item">프리랜서</div>
+                                <div class="grid-item">
+                                    P&D solution | 2023.11 - 2024.02<br/>
+                                    충남대학교 데이터 기반 학생 학업 모니터링 및 예측 시스템 구축 사업
+                                </div>
+                                <div class="grid-item">프리랜서</div>
+                                <div class="grid-item">
+                                    P&D solution | 2024.07 - 2024.08<br/>
+                                    Spotfire 전처리 모듈 개발
+                                </div>                               
+                            </div>
+                            <div class = "conbox con3">
+                                <div class="grid-item">논문 | SCIE</div>
+                                <div class="grid-item2">
+                                    1. Evaluation of Odor Prediction Model Performance and Variable Importance according to Various Missing Imputation Methods<br/>
+                                    2. Prediction of Complex Odor from Pig Barn Using Machine Learning and Identifying the Influence of Variables Using Explainable Artificial Intelligence<br/>
+                                    3. Estimating Chlorophyll-a Concentration from Hyperspectral Data Using Various Machine Learning Techniques: A Case Study at Paldang Dam, South Korea
+                                </div>
+                                <div class="grid-item">논문 | SCOPUS</div>
+                                <div class="grid-item2">Multiclass Classification by Various Machine Learning Algorithms and Interpretation of the Risk Factors of Pedestrian Accidents Using Explainable AI</div>
+                                <div class="grid-item">연구과제</div>
+                                <div class="grid-item2">
+                                    1. 데이터 기반 복합악취 예측 및 생산성 비교분석<br/>
+                                    2. 녹조 예측 기계학습 모델<br/>
+                                    3. 인공지능 기법을 활용한 보 구간 물환경 데이터 통합분석 연구<br/>
+                                    4. 식자재 수요예측을 위한 통계분석 컨설팅<br/>
+                                    5. 노지 채소 관비재배를 위한 양.수분 정밀제어기술 개발
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-            <div class = "right">
-                <button class="close-btn" onclick="closeBox('box1')">CLOSE</button>
-                <div class="chart-container">
-                    <canvas id="spiderChart"></canvas> 
-                </div>   
-                <div class="donutChart-grid-container">
-                    <div class="donutChart-grid-item">
-                        <canvas id="donutChart1"></canvas>
-                    </div>
-                    <div class="donutChart-grid-item">
-                        <canvas id="donutChart2"></canvas>
-                    </div>
-                    <div class="donutChart-grid-item">
-                        <canvas id="donutChart3"></canvas>
-                    </div>
-                </div>                              
-            </div>
-        </div>
 
-        <div class="box box2" id="box2">
-            <button class="close-btn" onclick="closeBox('box1')">CLOSE</button>
-            <div class="grid-container">
-                <div class="grid-item">
-                    <a href = "https://www.notion.so/raoon/072c0aec3a35490a88fb4837803152bc" >
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbawoTy%2FbtsIPrHUlgw%2Fa5Xedvwp1kSPbJYe8kotGK%2Fimg.png" 
-                             alt="충남대학교" class="project-img">>
+                <div id = "AM-right">
+                    <div id = "spider-chart-container">
+                        <canvas id="spiderChart"></canvas> 
+                    </div>
+                </div>
+            </div>
+
+            <div id = "PJ-container">
+                <div class = "grid-container">
+                    <div class="grid-item">
+                        <a href = "https://www.notion.so/raoon/072c0aec3a35490a88fb4837803152bc" >
+                            <img src="./img/CNU.png" alt="충남대학교">
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href = "https://www.notion.so/raoon/1-2-8e73a716c2e54021909e7ce57d4e34b1">
+                            <img src="./img/odor.png" alt="악취">
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href = "https://www.notion.so/raoon/1-2-22167eb9751a4cf581aea3dc795a3907">
+                            <img src="./img/hyperspectral.png" alt="초분광">
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href = "https://www.notion.so/raoon/4fa9c9b47f394b3689bf894517a3019f">
+                            <img src="./img/weir.png" alt="보구간">
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href = "https://www.notion.so/raoon/258c9048557e41eba65fdddc690549d0">
+                            <img src="./img/traffic.png" alt="교통">
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href = "https://www.notion.so/raoon/dc508b07868a4ec2a090569a061d597a">
+                            <img src="./img/smartfarm.png" alt="스마트팜">
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href = "https://www.notion.so/raoon/f56a2a1c60924e20999dc9d176ed6a16">
+                            <img src="./img/food prediction.png" alt="식자재">
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href = "https://www.notion.so/raoon/8d1e4204ba1748a9af3543526811a023">
+                            <img src="./img/collusion.png" alt="담합">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <div class = "grid-container">
+                <div class = "grid-item">
+                    <a href = "https://github.com/RaOOns">
+                        <i class="fa-brands fa-github"></i>
                     </a>
                 </div>
-                <div class="grid-item">
-                    <a href = "https://www.notion.so/raoon/1-2-8e73a716c2e54021909e7ce57d4e34b1">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcBoJne%2FbtsIRetAXCs%2FQCYyKxoEx8mLftWGvw4Gk1%2Fimg.png" 
-                             alt="악취" class="project-img">
+                <div class = "grid-item">
+                    <a href = "https://www.instagram.com/le_2ee/">
+                        <i class="fa-brands fa-instagram"></i>
                     </a>
                 </div>
-                <div class="grid-item">
-                    <a href = "https://www.notion.so/raoon/1-2-22167eb9751a4cf581aea3dc795a3907">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FRm558%2FbtsIPTqvPf5%2FzWd7sZgQvXTr13Lz4sECoK%2Fimg.png" 
-                             alt="초분광" class="project-img">
+                <div class = "grid-item">
+                    <a href = "https://www.notion.so/DATA-ANALYST-STATISTICIAN-f9e4c280cf0d4d44a801586241258a02">
+                        <img src="./img/notion.svg" alt="Notion">
                     </a>
                 </div>
-                <div class="grid-item">
-                    <a href = "https://www.notion.so/raoon/4fa9c9b47f394b3689bf894517a3019f">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F7s6Cl%2FbtsIPvwOYth%2F5gyO4tuWmkKhVii3wGJpI0%2Fimg.png" 
-                             alt="보구간" class="project-img">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href = "https://www.notion.so/raoon/258c9048557e41eba65fdddc690549d0">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXJHfy%2FbtsIRx7wXhQ%2FWynJfmHu6Isln82sYdD24K%2Fimg.png" 
-                             alt="교통" class="project-img">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href = "https://www.notion.so/raoon/dc508b07868a4ec2a090569a061d597a">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbFtjMr%2FbtsIQ1HTQpF%2FmZ5engnR2mpNHXBnjtJKQ0%2Fimg.png" 
-                             alt="스마트팜" class="project-img">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href = "https://www.notion.so/raoon/f56a2a1c60924e20999dc9d176ed6a16">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbjXS2y%2FbtsIPSZr7G8%2FIJT7k7dLiJWY2b9klttxYK%2Fimg.png" 
-                             alt="식자재" class="project-img">
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href = "https://www.notion.so/raoon/8d1e4204ba1748a9af3543526811a023">
-                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FGJ8rn%2FbtsIO3AxUgz%2FQL8ojuMBgZKBIjc95icqMK%2Fimg.png" 
-                             alt="담합" class="project-img">
+                <div class = "grid-item">
+                    <a href = "https://laoonlee.tistory.com/">
+                        <img src="./img/tistory.svg" alt="Ti-stroy">
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+            <div>
+                dhguslee@naver.com
+            </div>
+        </footer>
+    </main>
 
-    <footer>
-        <div>
-            <a href = "https://github.com/RaOOns" style="text-decoration: none;">
-                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github" class = "hyper-image" style="border-radius: 50%;">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </a>
-            <a href = "https://www.notion.so/DATA-ANALYST-STATISTICIAN-f9e4c280cf0d4d44a801586241258a02" style="text-decoration: none;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion" class = "hyper-image">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </a>
-            <a href = "https://laoonlee.tistory.com/" style="text-decoration: none;">
-                <img src="https://t1.daumcdn.net/tistory_admin/static/top/favicon_0630.ico" alt="Ti-stroy" class = "hyper-image">
-                &nbsp;&nbsp;&nbsp;&nbsp;
-            </a>
-            <a href = "https://www.instagram.com/le_2ee/" style="text-decoration: none;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class = "hyper-image">
-            </a>
-        </div>
-        <div class="footer-font">
-            dhguslee@naver.com
-        </div> 
-    </footer>
-    
+
+<link rel="stylesheet" href="style.css" />    
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://kit.fontawesome.com/4d794e62d0.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

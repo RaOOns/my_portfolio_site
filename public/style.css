@@ -1,39 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
-@font-face {
-    font-family: 'Gmarket Sans';
-    src: url('path-to-your-font-file/gmarket-sans.woff2') format('woff2'),
-         url('path-to-your-font-file/gmarket-sans.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-
-/* 화면 틀 구성 ======================================================================================== */
-body, html {
+body{
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+    /* height: 100vh; */
+    /* width: 100vw; */
+    /* overflow: hidden; */
+    overflow: auto;
+    
 }
 
-header {
-    height: 7%;
-    background-color: white;
+main{
     display: flex;
+    flex-direction: column;
+    min-width: 1340px;
+    min-height: 100vh; /* 전체 화면 높이 */
+    overflow: auto;
+}
+
+
+header {
+    display: flex;
+    height: 7vh; /* 고정된 높이, 화면 높이의 15% */
+    min-height: 50px; /* 최소 높이 */
+    background-color: black;
     justify-content: center;
     align-items: center;
 }
 
+.header-btn {
+    margin: 0 50px;                 /* margin: 바깥 여백 (all) (상하,좌우) (상, 좌우, 하) (상,우,하,좌) */
+    padding: 0px;                   /* padding: 안쪽 여백 */
+    border: none;
+    background-color: white;
+    cursor: pointer;                /* 마우스 올릴 시 포인트 변화 */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: black;
+}
+
+/* header-btn에 마우스 올렸을 시 변화 */
+.header-btn:hover {
+    text-decoration: underline;         /* 밑줄 추가 */
+    color: red;
+    text-decoration-color: red;       /* 밑줄 색상 */
+    text-decoration-thickness: 2px;     /* 밑줄 두께 */
+}
+
+/* header-btn이 눌리는 순간의 변화 */
+.header-btn:active {
+    transform: scale(0.90);             /* 버튼을 축소 */
+}
+
+
 section {
-    height: 83%;
-    /* overflow: auto; */
-    position: relative;
+    display: flex;
+    /* height: 83vh; */
+    flex: 1;
+    min-height: 540px; /* 최소 높이 */
+    background-color: blue;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative; /* 가상 요소가 부모 요소 내에서 배치되도록 설정 */
+    overflow: hidden; /* 가상 요소가 섹션을 넘어서지 못하도록 설정 */
 }
 
 /* Section에 배경 추가 가상요소(::before) 사용 시 구조를 무너뜨리지 않을 수 있음 */
 section::before {
-    height: 35rem;                      /* 가상 요소의 높이와 넓이 != 이미지의 크기 */
-    width: 35rem;                   
+    display: flex;
+    height: 80%;                      /* 가상 요소의 높이와 넓이 != 이미지의 크기 */
+    aspect-ratio: 1;                
     content: "";                        /* 가상 요소의 텍스트 콘텐츠는 비움 즉, 시각적 목적으로만 활용 */
     background-image: url(https://avatars.githubusercontent.com/u/79679194?v=4);
     background-size: cover;             /* 이미지가 가상 요소 크기에 맞게 조절 */
@@ -46,257 +83,272 @@ section::before {
     left: 50%;                          /* 가상 요소를 부모 요소의 가로 중앙에 위치 (가상 요소의 왼쪽 위 모서리 기준인듯) */
     transform: translate(-50%, -50%);   /*중앙에 맞추기 위해 이동 */
     z-index: 1;                         /* 가상 요소의 쌓임? 순서 */
+    overflow: hidden;
     
 }
 
-
 section > * {
-    position: relative;
     z-index: 2;
 }
 
 
-footer {
+#AM-container{
+    display: none;
+    background-color: green;
+    /* overflow: auto; */
+}
+
+#AM-container.active{
     display: flex;
+    flex-direction: row;
+    position: absolute; /* 부모 요소에 상대적인 위치 설정 */
+    width: 80%;
+    height: 90%;
+    /* overflow: auto; */
+}
+
+#AM-left{
+    width:50%;
+    background-color: orange;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 35% 15% 50%;
+    /* position: relative; 절대 위치를 설정하기 위해 relative 필요 */
+}
+
+#AM-left > .grid-item{
     background-color: brown;
-    flex-direction: column;
-    height: 10%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    /* position: relative; grid-item 내에 이미지 위치 고정 */
+    /* overflow: hidden; 그리드 셀에서 넘치는 부분을 숨김 */
 }
 
-/* Header 부분 =========================================================================== */
-.header-btn {
-    margin: 0 50px;                 /* margin: 바깥 여백 (all) (상하,좌우) (상, 좌우, 하) (상,우,하,좌) */
-    padding: 0px;                   /* padding: 안쪽 여백 */
-    cursor: pointer;                /* 마우스 올릴 시 포인트 변화 */
-    background-color: white;
-    border: none;
-    /* font-size: 25px; */
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: black;
-    
-}
-
-/* header-btn에 마우스 올렸을 시 변화 */
-.header-btn:hover {
-    text-decoration: underline;         /* 밑줄 추가 */
-    text-decoration-color: red;       /* 밑줄 색상 */
-    text-decoration-thickness: 5px;     /* 밑줄 두께 */
-}
-
-/* header-btn이 눌리는 순간의 변화 */
-.header-btn:active {
-    transform: scale(0.90);             /* 버튼을 축소 */
-}
-
-
-
-/* Section 부분 ======================================================================= */
-.box {
-    height: 100%;
-    flex: 1;                   /* 박스가 부모 요소에 맞춰 확장되도록 설정 */
-    display: none;          /* 처음에 보이지 않게 설정 */
-}
-.box.active {
-    flex: 1;                   /* 박스가 부모 요소에 맞춰 확장되도록 설정 */
-    display: block;         /* 활성화된 박스만 보이게 설정 */
-}
-
-div.left {
+#AM-left > .grid-item2{
     display: flex;
-    flex-direction: column;
-    background-color: white;
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    float: left;
-    box-sizing: border-box;
+    background-color: darkgoldenrod;
+    grid-column: 1/3;
+
 }
 
-div.right {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    width: 50%;
-    height: 100%;
-    float: right;
-    box-sizing: border-box;
-    flex-direction: column;   /* 세로 방향으로 배치 */
-    align-items: center;      /* 수평 가운데 정렬 */
-} 
 
-
-.introduction-box {
-    position: absolute;
-    width: 50%;
-    height: 25%;
-    top: 10%; /* 비율 기반 위치 */
-    left: 20%; /* 비율 기반 위치 */
-    box-sizing: border-box;
-}
-
-.myimage-box {
-    position: absolute;
-    width: 30%;
-    height: 25%;
-    top: 10%; /* 비율 기반 위치 */
-    left: 70%; /* 비율 기반 위치 */
-    box-sizing: border-box;
-}
-
-.info-table {
-    position: absolute;
-    width: 80%;
-    height: 10%;
-    top: 33%; /* 비율 기반 위치 */
-    left: 20%; /* 비율 기반 위치 */
-    padding: 10% 0; /* 비율 기반 패딩 */
-    background-color: whitesmoke ;
-    text-align: center;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-
-.info-box {
-    position: absolute;
-    width: 80%;
-    height: 40%;
-    top: 50%; /* 비율 기반 위치 */
-    left: 20%; /* 비율 기반 위치 */
-    box-sizing: border-box;
-}
-
-label[for*="tab"] {
+#AM-left > .grid-item  > h1, h2, h3, h4, h5, h6{
     display: inline-block;
-    width: 9.375rem;
-    height: 1.57rem;
+    padding: 0 0 0 30px;
+    margin: 20px 0px 0px 0px;
+}
+
+#AM-left > .grid-item  > img{
+    display: block; /* 이미지를 블록 요소로 설정하여 여백 제거 */
+    max-width: 100%; /* 이미지의 최대 너비를 grid-item에 맞춤 */
+    max-height: 100%; /* 이미지의 최대 높이를 grid-item에 맞춤 */
+    background-color: white;
+    object-fit: contain;
+}
+
+#AM-left > .grid-item2 > .table-container{
+    /* position: absolute; 테이블을 그리드 위에 겹치게 만듬 */
+    width: 100%;
+    margin: 5px 0px;
+    /* display: block; */
+    /* height: 100%; */
+    /* top: 37%; */
+    background-color: rgb(159, 158, 158, 0.95); 
+}
+
+#AM-left > .grid-item2 > .table-container > table{
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center;
+
+}
+
+#AM-left > .grid-item2 > .table-container tr:nth-child(1) {
+    font-size: 0.7rem; 
+    font-weight: 600;
+}
+
+#AM-left > .grid-item2 > .table-container tr:nth-child(2) {
+    font-size: 1.5rem; 
+    font-weight: 900; 
+    /* font-family: 'Gmarket Sans', sans-serif; */
+}
+
+
+
+
+#AM-left > .grid-item2 > .conbox-container {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#AM-left > .grid-item2 input[type="radio"] {
+    display: none;
+}
+
+#AM-left > .grid-item2 label[for*="tab"] {
+    display: inline-block;
+    width: 20%;
+    height: 10%;
     margin: 0px;
-    padding: 0.3rem 0.18rem;
+    /* padding: 0.3rem 0.18rem; */
     cursor: pointer;
     background-color:whitesmoke;
     color: black;
     border: 1px solid gray;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 0.8rem;
     font-weight: 700;
+    box-sizing: border-box;
 }
 
-input[type="radio"] {
-    display: none;
-}
-input[id*="tab"]:checked + label {
+#AM-left > .grid-item2 input[id*="tab"]:checked + label {
     background-color: darkred;
     color: white;
 }
 
-.conbox {
-    position: relative; 
+#AM-left > .grid-item2 .conbox-container > .conbox {
     width: 100%; 
-    height: 100%;
+    height: 90%;
+    /* flex-grow:1; */
     display: none; 
-}
-
-input[id="tab1"]:checked ~ .con1 {
-    display: block;
-}
-input[id="tab2"]:checked ~ .con2 {
-    display: block;
-}
-input[id="tab3"]:checked ~ .con3 {
-    display: block;
-}
-
-.info-grid-container {
-    display: grid;
-    grid-template-columns: 21% 79%;
-    grid-auto-rows: 2.8rem;
-    width: 100%;
-    height: 100%;
-    gap: 1px;
+    background-color: purple;
     box-sizing: border-box;
 }
 
-.info-grid-item {
+
+#AM-left > .grid-item2 input[id="tab1"]:checked ~ .con1 {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: repeat(4, 1fr) 4fr;
+}
+
+#AM-left > .grid-item2 input[id="tab2"]:checked ~ .con2 {
+    display: grid;
+    /* height: 35%; */
+    grid-template-columns: 20% 80%;
+    grid-template-rows: repeat(5, 1fr);
+    background-color:skyblue;
+}
+#AM-left > .grid-item2 input[id="tab3"]:checked ~ .con3 {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 3fr 1fr 2.5fr;
+    background-color:green;
+}
+
+#AM-left > .grid-item2 .grid-item:nth-child(2n+1) {
+    display: flex; /* Flexbox를 사용하여 세로 정렬 */
     border-bottom: 1px solid gray;
-    display: flex;
+    margin: 0;
     padding: 0 20px;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: 1000;
+    font-size: 0.8rem;
+    font-weight: bold;
     color: black;
+    justify-content: left; /* 가로 중앙 정렬 */
+    align-items: center;
+    text-align: left;
 }
 
-.chart-container {
+#AM-left > .grid-item2 .grid-item:nth-child(2n) {
+    display: flex; /* Flexbox를 사용하여 세로 정렬 */
+    border-bottom: 1px solid gray;
+    margin: 0;
+    padding: 0 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: black;
+    justify-content: right; /* 가로 중앙 정렬 */
+    align-items: center;
+    text-align: right;
+    
+}
+
+#AM-left > .grid-item2 .grid-item2 {
+    display: flex; /* Flexbox를 사용하여 세로 정렬 */
+    border-bottom: 1px solid gray;
+    margin: 0;
+    padding: 0 20px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: black;
+    align-items: center;
+    text-align: left;
+    
+}
+
+#AM-left > .grid-item2 img{
+    width: 1.2rem;
+    height: 1.2rem; 
+    margin: 0 0.5rem;
+}
+
+#AM-left > .grid-item2 i{
+    font-size: 1.2rem;
+    /* color: white; */
+    margin: 0 0.5rem
+}
+
+
+#AM-right{
+    display: flex; /* Flexbox 컨테이너로 설정 */
+    width:50%;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center;
+    text-align: center;
+    background-color: yellow;
+}
+
+
+#spider-chart-container{
+    /* width: 80%; */
+    /* aspect-ratio: 1 / 1;   */
+    width: 500px;
+    height: 500px;    
+    background-color: aqua;
+}
+
+
+#PJ-container{
+    display: none;
+    background-color: rgb(128, 0, 107);
+    /* overflow: auto; */
+}
+
+#PJ-container.active{
     display: flex;
-    position: relative;
-    width: 100%;
-    height: 70%;
-    margin: 0 0 0 0;
-    padding: 0;
-    justify-content: center;
+    flex-direction: row;
+    position: absolute; /* 부모 요소에 상대적인 위치 설정 */
+    width: 80%;
+    height: 90%;
+    justify-content: center; /* 가로 중앙 정렬 */
     align-items: center;
     text-align: center;
-    /* background-color: red; */
 }
 
-.donutChart-grid-container {
+
+#PJ-container > .grid-container{
     display: grid;
-    width: 70%;
-    height: 25%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-sizing: border-box;
-    /* background-color: blue; */
-}
-
-.donutChart-grid-item {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    align-items: center;
-    text-align: center;
-    /* background-color: yellow; */
-}
-
-.donutChart-grid-item canvas {
-    max-width: 100%;             /* 캔버스가 부모 아이템의 최대 너비를 초과하지 않도록 설정 */
-    max-height: 90%;            /* 캔버스가 부모 아이템의 최대 높이를 초과하지 않도록 설정 */
-}
-
-/* "Section - Project" ============================================================== */
-/* Box를 2x4 Grid 레이아웃을 담을 공간 만들기 */
-.grid-container {
-    display: grid;
-    background-color: white;
+    background-color: darkcyan;
     grid-template-columns: repeat(4, 1fr);  /* 5개의 동일한 너비의 그리드 열 생성 */
     grid-template-rows: repeat(2, 1fr);     /*2개의 동일한 높이의 그리드 행 생성  */
-    /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 변경됨 */
-    width: 90%;                             /* 그리드 레이아웃 너비를 부모 요소의 100% 사용 */
-    height: 90%;                            /* 그리드 레이아웃 높이를 부모 요소의 100% 사용 */
+    width: 100%;                             /* 그리드 레이아웃 너비를 부모 요소의 100% 사용 */
+    height: 100%;                            /* 그리드 레이아웃 높이를 부모 요소의 100% 사용 */
     column-gap: 3rem;                       /* 그리드 아이템 간 간격 */
     row-gap: 1rem;
-    /* row-gap: 20px; */
     padding: 1.25rem 1.875rem;                     /* 그리드 레이아웃 내의 내부 여백 */
     box-sizing: border-box;                 /* 패딩이 전체 크기에 포함되도록 설정 */
-    /* overflow: hidden;                       그리드 경계를 벗어나는 것을 방지 */
-    overflow: visible; /* 그리드 아이템이 부모 요소를 벗어나더라도 표시되도록 설정 */
-    margin: 0 0 0 5%;
+    /* margin: 0 0 0 5%; */
 }
 
-/* 그리드 각 아이템(칸)에 적용될 옵션 */
-.grid-item { 
-    /* background-color: white;           배경색을 추가 */
+#PJ-container > .grid-container > .grid-item { 
+    background-color: white;           
     height: auto; /* 높이를 자동으로 설정하여 콘텐츠에 맞게 조정 */
     border: 3px solid gray;             /* 경계를 추가 */
-    margin: 12% 0 0 0;
+    /* margin: 12% 0 0 0; */
     display: flex;                        /* 내부 요소가 중앙에 배치되도록 설정 */
     justify-content: center;
     align-items: center;
@@ -305,213 +357,137 @@ input[id="tab3"]:checked ~ .con3 {
     max-height: 100%; /* 그리드 아이템의 최대 높이를 그리드 셀 크기로 제한 */
     position: relative; /* 포지션을 relative로 설정하여 내부 요소의 절대 위치 설정 가능 */
     cursor: pointer;
+    overflow: hidden;
+}
+
+#PJ-container > .grid-container > .grid-item img{
+    background-size: cover;             /* 이미지가 가상 요소 크기에 맞게 조절 */
+    background-position: center;        /* 이미지를 가상 요소의 가운데 맞춤*/
+    background-repeat: no-repeat;       /* 이미지가 반복 되어 나타나지 않게 조정 */
 }
 
 
-.project-img{
-    width: 100%; /* 이미지의 너비를 그리드 아이템의 너비에 맞춤 */
-    height: 100%; /* 이미지의 높이를 그리드 아이템의 높이에 맞춤 */
-    /* object-fit: contain; 이미지가 그리드 아이템을 채우도록 설정, 비율이 맞지 않으면 잘림 */
-    object-fit: cover;                   /* 이미지 비율을 유지하며, 그리드 아이템을 채우도록 설정 */
-    position: absolute; /* 이미지의 위치를 절대적으로 설정 */
-    top: 0;
-    left: 0;
-}
-
-/* Footer에 들어갈 이미지 ============================================================= */
-.hyper-image {
-    width: 2.25rem;
-    height: auto;
-}
-
-.footer-font {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: white;
-}
-
-/* 특수 기능 ========================================================================= */
-.close-btn {
-    position: absolute; /* 절대 위치 */
-    top: 5px;
-    right: 5%; /* 비율로 설정하여 위치가 화면 크기에 따라 조정되도록 */
-    width: 5vw; /* 화면 너비의 5%로 설정 */
-    height: 5vw; /* 화면 너비의 5%로 설정 */
-    background-color: rgba(255, 255, 255, 0); /* 투명 배경 유지 */
-    font-size: 1.5rem; /* 반응형 폰트 크기 */
-    font-weight: 700;
-    text-decoration: underline;
-    border: 1px solid rgba(255, 255, 255, 0); /* 투명 테두리 유지 */
+footer {
+    display: flex;
+    background-color: brown;
+    flex-direction: column;
+    height: 15vh; /* 고정된 높이, 화면 높이의 10% */
+    min-height: 100px; /* 최소 높이 */
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    font-weight: bold;
+}
+
+
+footer img {
+    width: 1.5rem; /* 부모 요소의 너비에 맞춤 */
+    height: 1.5rem; /* 부모 요소의 높이에 맞춤 */
+    object-fit: cover; /* 부모 요소에 맞게 이미지를 자르거나 크기를 조정 */
+}
+
+footer  i {
+    font-size: 1.5rem;
+}
+
+footer > a {
+    text-decoration: none;
+}
+
+footer > .grid-container{
+    display: grid;
+    background-color: darkcyan;
+    grid-template-columns: repeat(4, 5rem);  /* 5개의 동일한 너비의 그리드 열 생성 */
+    grid-template-rows: 3rem;     /*2개의 동일한 높이의 그리드 행 생성  */
+}
+
+footer > .grid-container > .grid-item{
+    background-color: gainsboro;           
+    height: auto; /* 높이를 자동으로 설정하여 콘텐츠에 맞게 조정 */
+    display: flex;                        /* 내부 요소가 중앙에 배치되도록 설정 */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 100%; /* 그리드 아이템의 최대 너비를 그리드 셀 크기로 제한 */
+    max-height: 100%; /* 그리드 아이템의 최대 높이를 그리드 셀 크기로 제한 */
+    position: relative; /* 포지션을 relative로 설정하여 내부 요소의 절대 위치 설정 가능 */
     cursor: pointer;
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    font-family: "Gothic A1", sans-serif;
-    letter-spacing: 20px;
-    line-height: 0.2;
-}
 
-h2 {
-    font-size: 1.875rem;
-    font-weight: 1000;
-    letter-spacing: 2px;
-}
-
-h3 {
-    color: rgb(82, 81, 81);
-}
-
-/* 미디어 쿼리 */
-@media (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        column-gap: 15px;
-        row-gap: 15px;
+@media (max-width: 450px) {
+    body, main {
+        /* overflow-x: none; 가로 및 세로 스크롤 허용 */
+        overflow: auto; /* 가로 및 세로 스크롤 허용 */
+        width: 100%;
+        min-width: 400px;
     }
 
-    .close-btn {
-        right: 10px; /* 위치 조정 */
-        width: 4vw; /* 크기 조정 */
-        height: 4vw; /* 크기 조정 */
-        font-size: 1.25rem; /* 폰트 크기 조정 */
-    }
-
-    div.left, div.right {
-        position: relative; /* position을 relative로 변경 */
-        width: 100%; /* 모바일에서는 너비를 100%로 설정 */
-        height: auto; /* 높이를 자동으로 조정하여 내용에 맞게 조절 */
-        float: none; /* float을 없애어 세로로 배치되도록 */
-        flex: 1; /* 공간을 균등하게 나누기 위해 flex 속성 추가 */
-    }
-
-    .introduction-box, .myimage-box, .info-table, .info-box {
-        width: 80%;
-        height: auto; /* 높이를 자동으로 조정 */
-        top: auto; /* 수직 위치를 조정 */
-        left: 10%; /* 왼쪽 여백 조정 */
-    }
-
-    .info-table {
-        padding: 3% 0; /* 패딩 조정 */
-    }
-
-    .box {
+    /* #AM-container{
         display: flex;
-        flex-direction: column; /* 기본적으로 세로로 정렬 */
-        height: auto; /* 기본 높이 설정 */
-        display: none;          /* 처음에 보이지 않게 설정 */
-        /* overflow: visible; 기본적으로 스크롤이 없도록 설정 */
+        overflow: auto;
+    } */
+
+    #AM-container.active{
+        display: flex;
+        flex-direction: column;
+        overflow: auto; /* 가로 및 세로 스크롤 허용 */
+        width: 100%;
+        height: 90%;
+        /* height: auto; */
+
     }
 
-}
-
-@media (max-width: 768px) {
-    .header-btn {
-        margin: 0 10px; /* 여백 조정 */
+    #AM-left{
+        width: 100%;
     }
 
-    .footer-font {
-        font-size: 1rem;
+    #AM-left > .grid-item  > h1, h2{
+        display: inline-block;
+        font-size: 6vw;
+        padding: 0 0 0 30px;
+        margin: 20px 0px 0px 0px;
+    }
+
+    #AM-left > .grid-item  > h3, h4, h5, h6{
+        display: inline-block;
+        font-size: 2.5vw;
+        padding: 0 0 0 30px;
+    }
+
+    /* #AM-left > .grid-item2 > .conbox-container .grid-item2 .grid-item {
+        font-size: 1rem;        
+    } */
+
+    #AM-right{
+        width: 100%;
+    }
+
+    #spider-chart-container{
+        width: 100%;
+        /* height: auto; */
+        aspect-ratio: 1 / 1;  
+    }
+
+
+    #PJ-container{
+        overflow: auto; /* 가로 및 세로 스크롤 허용 */
     }
     
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);  /* 2개의 열로 조정 */
-        grid-template-rows: repeat(auto-fill, minmax(200px, 1fr)); /* 행의 높이를 자동으로 조정 */
-        row-gap: 1rem;                          /* 행 간격 조정 */
-        margin: 0;                             /* 여백 조정 */
-        padding: 0.625rem;                         /* 내부 여백 조정 */
+
+    #PJ-container > .grid-container{
+        display: grid;
+        background-color: darkcyan;
+        grid-template-columns: repeat(1, 1fr);  /* 5개의 동일한 너비의 그리드 열 생성 */
+        grid-template-rows: repeat(8, 200px);     /*2개의 동일한 높이의 그리드 행 생성  */
+        width: 100%;                             /* 그리드 레이아웃 너비를 부모 요소의 100% 사용 */
+        height: 100%;                            /* 그리드 레이아웃 높이를 부모 요소의 100% 사용 */
+        column-gap: 3rem;                       /* 그리드 아이템 간 간격 */
+        row-gap: 1rem;
+        padding: 1.25rem 1.875rem;                     /* 그리드 레이아웃 내의 내부 여백 */
+        box-sizing: border-box;                 /* 패딩이 전체 크기에 포함되도록 설정 */
+        /* margin: 0 0 0 5%; */
     }
 
-    .grid-item {
-        height: auto; /* 높이 자동 조정 */
-    }
-
-    .close-btn {
-        right: 10px;
-        width: 4vw;
-        height: 4vw;
-        font-size: 1.25rem;
-    }
-
-    div.left, div.right {
-        position: relative; /* position을 relative로 변경 */
-        width: 100%; /* 모바일에서는 너비를 100%로 설정 */
-        height: auto; /* 높이를 자동으로 조정하여 내용에 맞게 조절 */
-        float: none; /* float을 없애어 세로로 배치되도록 */
-        flex: 1; /* 공간을 균등하게 나누기 위해 flex 속성 추가 */
-    }
-
-    .introduction-box, .myimage-box, .info-table, .info-box {
-        width: 90%;
-        top: auto; /* 수직 위치 조정 */
-        left: 5%; /* 왼쪽 여백 조정 */
-    }
-
-    .info-table {
-        padding: 2% 0; /* 패딩 조정 */
-    }
-
-    .box {
-        display: flex;
-        flex-direction: column; /* 기본적으로 세로로 정렬 */
-        height: auto; /* 기본 높이 설정 */
-        display: none;          /* 처음에 보이지 않게 설정 */
-        /* overflow: visible; 기본적으로 스크롤이 없도록 설정 */
-    }
-}
-
-@media (max-width: 480px) {
-    .image-grid-container, .grid-container {
-        grid-template-columns: 1fr; /* 1개의 열로 설정하여 모든 아이템이 세로로 쌓이게 함 */
-    }
-
-    .footer-font {
-        font-size: 0.875rem;
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr;            /* 1개의 열로 설정 */
-        grid-template-rows: repeat(auto-fill, minmax(150px, 1fr)); /* 행의 높이를 자동으로 조정 */
-        row-gap: 1rem;                          /* 행 간격 조정 */
-        padding: 0.3rem;                          /* 내부 여백 조정 */
-    }
-
-    .grid-item {
-        height: auto; /* 높이 자동 조정 */
-    }
-
-
-    .header-btn {
-        width: 100%; /* 버튼 크기 조정 */
-    }
-
-    div.left, div.right {
-        position: relative; /* position을 relative로 변경 */
-        width: 100%; /* 모바일에서는 너비를 100%로 설정 */
-        height: auto; /* 높이를 자동으로 조정하여 내용에 맞게 조절 */
-        float: none; /* float을 없애어 세로로 배치되도록 */
-        flex: 1; /* 공간을 균등하게 나누기 위해 flex 속성 추가 */
-    }
-
-    .introduction-box, .myimage-box, .info-table, .info-box {
-        width: 100%;
-        top: auto; /* 수직 위치 조정 */
-        left: 0; /* 왼쪽 여백 조정 */
-    }
-
-    .info-table {
-        padding: 1% 0; /* 패딩 조정 */
-    }
-
-    .box {
-        display: flex;
-        flex-direction: column; /* 기본적으로 세로로 정렬 */
-        height: auto; /* 기본 높이 설정 */
-        display: none;          /* 처음에 보이지 않게 설정 */
-        /* overflow: visible; 기본적으로 스크롤이 없도록 설정 */
-    }
 }
