@@ -60,14 +60,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     },
                     
                     grid: {
-                        color: 'darkgray', // 라벨 경계의 선 색상
+                        color: 'black', // 라벨 경계의 선 색상
                         lineWidth: 1   // 라벨 경계의 선 굵기
                     },
 
                     pointLabels: {
                         font:{
-
-                            size: 15,   // 레이블 글자 크기 설정
+                            color: 'black',
+                            size: 20,   // 레이블 글자 크기 설정
                             weight: 400
                         },
                         // 레이블을 두 줄로 나눔
