@@ -460,6 +460,11 @@ footer > .grid-container > .grid-item{
         overflow: auto;
     } */
 
+    section::before {
+        width: min(95vw, 95vh);    /* 화면 너비와 높이 중 작은 값의 90%로 넓이 설정 */
+        height: min(95vw, 95vh);   /* 화면 너비와 높이 중 작은 값의 90%로 높이 설정 */
+    }
+
     #AM-container.active{
         display: flex;
         flex-direction: column;
