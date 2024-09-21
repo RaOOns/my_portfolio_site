@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         font: {
                             size: 20 // 글자 크기
                         },
-                        stepSize: 40, // 범위 간격 설정
+                        stepSize: 25, // 범위 간격 설정
                         // max: 100,  // 여기서 min max를 하면 min이 0이더라도 실제값 중 최소값부터 보임
                         // min: 0
 

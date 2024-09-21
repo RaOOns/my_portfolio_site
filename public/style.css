@@ -114,6 +114,7 @@ section > * {
 /* About Me 중 왼쪽 부분 설정 - Grid로 구성 */
 #AM-left{
     width:50%;
+    /* height: 100%; */
     /* background-color: orange; */
     display: grid;
     grid-template-columns: 70% 30%;
@@ -336,7 +337,7 @@ section > * {
 
 #PJ-container{
     display: none;
-    /* background-color: rgb(128, 0, 107); */
+    background-color: white;
     /* overflow: auto; */
 }
 
@@ -451,6 +452,9 @@ footer > .grid-container > .grid-item{
         min-width: 400px;
     }
 
+    .header-btn{
+        font-size: 1.5rem;
+    }
     /* #AM-container{
         display: flex;
         overflow: auto;
@@ -462,19 +466,40 @@ footer > .grid-container > .grid-item{
         overflow: auto; /* 가로 및 세로 스크롤 허용 */
         width: 100%;
         height: 90%;
+        /* justify-content: center; */
+        align-items: center;
         /* height: auto; */
 
     }
 
     #AM-left{
-        width: 100%;
+        width: 95%;
+        /* max-height: 100vh; */
+        /* grid-template-columns: 70% 30%; */
+        grid-template-rows: 180px 100px auto;
+    }
+    
+    
+    #AM-left > .grid-item  > h1{
+        font-size: 1rem;
+        letter-spacing: 1rem;
+    }
+    
+    #AM-left > .grid-item  > h2{
+        font-size: 1rem;
+        /* letter-spacing: 1rem; */
+    }
+    
+    #AM-left > .grid-item  > h5{
+        font-size: 0.8rem;
+        /* letter-spacing: 1rem; */
     }
 
     #AM-left > .grid-item  > h1, h2{
         display: inline-block;
         font-size: 6vw;
         padding: 0 0 0 30px;
-        margin: 20px 0px 0px 0px;
+        margin: 0px -10px 0px -10px;
     }
 
     #AM-left > .grid-item  > h3, h4, h5, h6{
@@ -483,12 +508,32 @@ footer > .grid-container > .grid-item{
         padding: 0 0 0 30px;
     }
 
-    /* #AM-left > .grid-item2 > .conbox-container .grid-item2 .grid-item {
-        font-size: 1rem;        
+
+    #AM-left > .grid-item2 > .table-container tr:nth-child(1) {
+        font-size: 0.8rem; 
+        font-weight: 600;
+    }
+    
+    #AM-left > .grid-item2 > .table-container tr:nth-child(2) {
+        font-size: 1.8rem; 
+        font-weight: 900; 
+        /* font-family: 'Gmarket Sans', sans-serif; */
+    }
+    
+    /* #AM-left > .grid-item2 > .conbox-container .grid-item2  {
+        font-size: 0.7rem;        
     } */
 
+    #AM-left > .grid-item2 label[for*="tab"] {
+        height: 30px;
+    }
+
+    #AM-left > .grid-item2 .conbox-container > .conbox {
+        background-color: rgba(203, 203, 203, 0.15);
+    }
+
     #AM-right{
-        width: 100%;
+        width: 95%;
     }
 
     #spider-chart-container{
@@ -502,10 +547,10 @@ footer > .grid-container > .grid-item{
         overflow: auto; /* 가로 및 세로 스크롤 허용 */
     }
     
-
+    
     #PJ-container > .grid-container{
         display: grid;
-        background-color: darkcyan;
+        /* background-color: ; */
         grid-template-columns: repeat(1, 1fr);  /* 5개의 동일한 너비의 그리드 열 생성 */
         grid-template-rows: repeat(8, 200px);     /*2개의 동일한 높이의 그리드 행 생성  */
         width: 100%;                             /* 그리드 레이아웃 너비를 부모 요소의 100% 사용 */
