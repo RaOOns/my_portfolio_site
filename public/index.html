@@ -1,218 +1,160 @@
-<!DOCTYPE html>     <!--DTD(문서 형태 정의): HTML이 어떤 문서 형식을 따를지 정의하며, HTML5이후로는 항상 이와 같이 정의-->
-<html lang="ko">    <!--html의 시작을 의미, 속성인 lang="ko"는 주 언어가 한글임을 의미-->
-<head>              <!--head: HTML문서의 metadata를 정의하는 영역-->
-    <meta charset="UTF-8">                                                  <!--허용하는 문자 집합을 정의-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!--화면의 너비를 맞추기 위한 메타데이터 태그-->
-    <title>Doggle</title>                                                   <!--문서의 제목을 지정, 반드시 1개의 title 태그를 사용(중복되면 안됨)-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>책 Final Project</title>
+    <link rel="stylesheet" href="style.css" />    
+    <script src="https://kit.fontawesome.com/4d794e62d0.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
+    <header>
+        <div class = "container">
+            <h1>
+                <button data-animation-scroll="true" data-target="#main">DH</button>
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <button data-animation-scroll="true" data-target="#aboutme">About Me</Button>
+                    </li>
+                    <li>
+                        <button data-animation-scroll="true" data-target="#project">Project</Button>
+                    </li>
+                    <li>
+                        <button data-animation-scroll="true" data-target="#contactme">Contact Me</Button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <main>
-        <header>
-            <button class = "header-btn" onclick = "showContainer('AM-container')"> About me </button>
-            <button class = "header-btn" onclick = "showContainer('PJ-container')"> Project </button>
-        </header>
-
-        <section>
-            <div id = "AM-container">
-                <div id = "AM-left">
-                    <div class = "grid-item">
-                        <p>
-                            <h1>이도현 </h1> <h2>Lee Dohyun </h2>
-                            <h5>정보통계학과 학사 | 충북대학교 <br/>
-                                통계학과 석사 | 충북대학교 <br/>
-                                경력 1년차 | Data Scientist | Data Analyst | Statistician</h5>
-                        </p>
-                    </div>
-
-                    <div class = "grid-item">
-                        <img src="./img/myprofile_img.png" alt="It's me!">
-                    </div>
-                    
-                    <div class = "grid-item2">
-                        <div class="table-container">
-                            <table>
-                                <tr>
-                                    <td>논문</td>
-                                    <td>연구과제</td>
-                                    <td>프로젝트</td>
-                                    <td>자격증</td>
-                                    <td>Competition</td>
-                                </tr>
-                                
-                                <tr>
-                                    <td style="color:darkred">4</td>
-                                    <td style="color:darkred">5</td>
-                                    <td style="color:#483D8B">2</td>
-                                    <td style="color:#006400">5</td>
-                                    <td style="color:#006400">5</td>
-                                </tr>                            
-                            </table>
-                        </div>
-                    </div>
-
-
-                    <div class = "grid-item2">
-                        <div class = "conbox-container">
-                            <input type="radio" name="tabmenu" id = "tab1" checked>
-                            <label for="tab1"> 특징</label>
-                            <input type="radio" name="tabmenu" id = "tab2">
-                            <label for="tab2"> 경력</label>
-                            <input type="radio" name="tabmenu" id = "tab3">
-                            <label for="tab3"> 대학원</label>
-                        
-                            <div class = "conbox con1">
-                                <div class="grid-item">출생</div>
-                                <div class="grid-item">1994.04.15</div>
-                                <div class="grid-item">MBTI</div>
-                                <div class="grid-item">INTJ</div>
-                                <div class="grid-item">취미</div>
-                                <div class="grid-item">독서 | 공부 | 운동 | 여행</div>
-                                <div class="grid-item"> Skills  </div>
-                                <div class="grid-item">
-                                    <i class="fa-brands fa-python"></i>
-                                    <img src="./img/rstudioide.svg" alt="R studio">
-                                    <img src="./img/sas.png" alt="SAS">
-                                    <i class="fa-solid fa-database"></i>
-                                    <img src="./img/html_css_js.png" alt="HTML/JS/CSS"> 
-                                    &nbsp;|&nbsp;
-                                    <img src="./img/spotfire.png" alt="Spotfire"> 
-                                    <img src="./img/tableau.svg" alt="Tableau"> 
-                                </div>
-                                <div class="grid-item">자격증</div>
-                                <div class="grid-item">
-                                    빅데이터 분석기사<br/>
-                                    정보처리기사<br/>
-                                    SQLD<br/>
-                                    SAS BaseCertification Programmer<br/>
-                                    사회조사분석사 2급
-                                </div>
-                            </div>
-                            <div class = "conbox con2">
-                                <div class="grid-item">프리랜서</div>
-                                <div class="grid-item">
-                                    P&D solution | 2023.11 - 2024.02<br/>
-                                    충남대학교 데이터 기반 학생 학업 모니터링 및 예측 시스템 구축 사업
-                                </div>
-                                <div class="grid-item">프리랜서</div>
-                                <div class="grid-item">
-                                    P&D solution | 2024.07 - 2024.08<br/>
-                                    Spotfire 전처리 모듈 개발
-                                </div>                               
-                            </div>
-                            <div class = "conbox con3">
-                                <div class="grid-item">논문 | SCIE</div>
-                                <div class="grid-item2">
-                                    1. Evaluation of Odor Prediction Model Performance and Variable Importance according to Various Missing Imputation Methods<br/>
-                                    2. Prediction of Complex Odor from Pig Barn Using Machine Learning and Identifying the Influence of Variables Using Explainable Artificial Intelligence<br/>
-                                    3. Estimating Chlorophyll-a Concentration from Hyperspectral Data Using Various Machine Learning Techniques: A Case Study at Paldang Dam, South Korea
-                                </div>
-                                <div class="grid-item">논문 | SCOPUS</div>
-                                <div class="grid-item2">Multiclass Classification by Various Machine Learning Algorithms and Interpretation of the Risk Factors of Pedestrian Accidents Using Explainable AI</div>
-                                <div class="grid-item">연구과제</div>
-                                <div class="grid-item2">
-                                    1. 데이터 기반 복합악취 예측 및 생산성 비교분석<br/>
-                                    2. 녹조 예측 기계학습 모델<br/>
-                                    3. 인공지능 기법을 활용한 보 구간 물환경 데이터 통합분석 연구<br/>
-                                    4. 식자재 수요예측을 위한 통계분석 컨설팅<br/>
-                                    5. 노지 채소 관비재배를 위한 양.수분 정밀제어기술 개발
-                                </div>                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div id = "AM-right">
-                    <div id = "spider-chart-container">
-                        <canvas id="spiderChart"></canvas> 
-                    </div>
-                </div>
-            </div>
-
-            <div id = "PJ-container">
-                <div class = "grid-container">
-                    <div class="grid-item">
-                        <a href = "https://www.notion.so/raoon/072c0aec3a35490a88fb4837803152bc" >
-                            <img src="./img/CNU.png" alt="충남대학교">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href = "https://www.notion.so/raoon/1-2-8e73a716c2e54021909e7ce57d4e34b1">
-                            <img src="./img/odor.png" alt="악취">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href = "https://www.notion.so/raoon/1-2-22167eb9751a4cf581aea3dc795a3907">
-                            <img src="./img/hyperspectral.png" alt="초분광">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href = "https://www.notion.so/raoon/4fa9c9b47f394b3689bf894517a3019f">
-                            <img src="./img/weir.png" alt="보구간">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href = "https://www.notion.so/raoon/258c9048557e41eba65fdddc690549d0">
-                            <img src="./img/traffic.png" alt="교통">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href = "https://www.notion.so/raoon/dc508b07868a4ec2a090569a061d597a">
-                            <img src="./img/smartfarm.png" alt="스마트팜">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href = "https://www.notion.so/raoon/f56a2a1c60924e20999dc9d176ed6a16">
-                            <img src="./img/food prediction.png" alt="식자재">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href = "https://www.notion.so/raoon/8d1e4204ba1748a9af3543526811a023">
-                            <img src="./img/collusion.png" alt="담합">
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-        </section>
-
-        <footer>
-            <div class = "grid-container">
-                <div class = "grid-item">
-                    <a href = "https://github.com/RaOOns">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </div>
-                <div class = "grid-item">
-                    <a href = "https://www.instagram.com/le_2ee/">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                </div>
-                <div class = "grid-item">
-                    <a href = "https://www.notion.so/DATA-ANALYST-STATISTICIAN-f9e4c280cf0d4d44a801586241258a02">
-                        <img src="./img/notion.svg" alt="Notion">
-                    </a>
-                </div>
-                <div class = "grid-item">
-                    <a href = "https://laoonlee.tistory.com/">
-                        <img src="./img/tistory.svg" alt="Ti-stroy">
-                    </a>
-                </div>
-            </div>
-            <div>
-                dhguslee@naver.com
-            </div>
-        </footer>
+    <main id = "main">
+        <div class = "container">
+            <h4>안녕하세요.</h4>
+            <!-- <h2>저는 <span> 데이터 사이언티스트 이 도 현 입니다.</span></h2> -->
+            <h2>저는 <span></span></h2>
+            <p> 숨겨진 정보를 찾기 위해 데이터 속을 유영하기 위해 <br>
+                통계학, ML/DL, 모델링 등 다양한 능력을 갖춘 Data Scientist</p>
+            <button class = "download">DOWNLOAD CV</button>
+            <button class = "mouse"><i class = "fa-solid fa-computer-mouse"></i></button>
+        </div>
     </main>
 
+    <section id="aboutme" class = "aboutme">
+        <div class = "container">
+            <div class = "title">
+                <h4>나의 능력치</h4>
+            </div>
+            <div class = "aboutme-self">
+                <div class = "left">
+                    왼쪽부분
+                </div>
+                <div class = "right">
+                    오른쪽 부분
+                </div>
+            </div>
+        </div>
+    </section>
 
-<link rel="stylesheet" href="style.css" />    
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://kit.fontawesome.com/4d794e62d0.js" crossorigin="anonymous"></script>
+    <section id="project" class="project">
+        <div class = "container">
+            <div class="title">
+                <h4>Project Portfolio</h4>
+            </div>
+            <div class="project-me">
+                <div class="project-inner">
+                    <img src="./img/CNU.png" alt = "CNU">
+                    <strong>Modeling</strong>
+                    <h3>Recommendation System & Prediction model</h3>
+                </div>
+                <div class="project-inner">
+                    <img src="./img/odor.png" alt = "odor">
+                    <strong>Pipeline</strong>
+                    <h3>Prediction model & p</h3>
+                </div>
+                <div class="project-inner">
+                    <img src="./img/hyperspectral.png" alt = "hyperspectral">
+                    <strong>Pipeline</strong>
+                    <h3>Prediction model</h3>
+                </div>
+                <div class="project-inner">
+                    <img src="./img/weir.png" alt = "weir">
+                    <strong>Analysis</strong>
+                    <h3>Prediction model</h3>
+                </div>
+                <div class="project-inner">
+                    <img src="./img/traffic.png" alt = "traffic">
+                    <strong>Modeling</strong>
+                    <h3>Recommendation System & Prediction model</h3>
+                </div>
+                <div class="project-inner">
+                    <img src="./img/smartfarm.png" alt = "smartfarm">
+                    <strong>Modeling</strong>
+                    <h3>Recommendation System & Prediction model</h3>
+                </div>
+                <div class="project-inner">
+                    <img src="./img/food prediction.png" alt = "food prediction">
+                    <strong>Modeling</strong>
+                    <h3>Recommendation System & Prediction model</h3>
+                </div>
+                <div class="project-inner">
+                    <img src="./img/collusion.png" alt = "collusion">
+                    <strong>Modeling</strong>
+                    <h3>Recommendation System & Prediction model</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactme" class="contactme">
+        <div class = "container">
+            <div class="title">
+                <h4>Contact</h4>
+            </div>
+            <div class="contactme-me">
+                <div class ="left">
+                    <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Email</h3>
+                            <p>dhguslee@naver.com</p>
+                        </div>
+                    </div> 
+                    <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Phone</h3>
+                            <p>010-6554-9549</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class ="right">
+                    <form action = "#">
+                        <div class = "form-group">
+                            <label for="name">성함</label>
+                            <input type="text" id="name">
+                        </div>
+                        <div class = "form-group">
+                            <label for="email">E-mail</label>
+                            <input type="text" id="email">
+                        </div>
+                        <div class = "form-group">
+                            <label for="msg">Message</label>
+                            <textarea id="msg"></textarea>
+                        </div>
+                        <button type="submit">전송</button>
+                    </form>                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+    
 </body>
-
 </html>

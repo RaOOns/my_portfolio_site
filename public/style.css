@@ -1,570 +1,476 @@
-/* ====================================== Main and Body ====================================== */
-body{
-    display: flex;
-    flex-direction: column;
+/* 웹 브라우저의 기본 스타일 초기화 ==============================================================*/
+*{
     margin: 0;
     padding: 0;
-    /* height: 100vh; */
-    /* width: 100vw; */
-    /* overflow: hidden; */
-    overflow: auto;
-    
+    box-sizing: border-box;
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-    min-width: 1340px;
-    min-height: 100vh; /* 전체 화면 높이 */
-    overflow: auto;
+a, a:link, a:visited{
+    color: inherit;
+    text-decoration: none;
 }
 
-/* ====================================== header  ====================================== */
-header {
-    display: flex;
-    height: 7vh; /* 고정된 높이, 화면 높이의 15% */
-    min-height: 50px; /* 최소 높이 */
-    background-color: white;
-    justify-content: center;
-    align-items: center;
+li{
+    list-style: none;
 }
 
-.header-btn {
-    margin: 0 50px;                 /* margin: 바깥 여백 (all) (상하,좌우) (상, 좌우, 하) (상,우,하,좌) */
-    padding: 0px;                   /* padding: 안쪽 여백 */
-    border: none;
-    background-color: white;
-    cursor: pointer;                /* 마우스 올릴 시 포인트 변화 */
-    font-size: 2rem;
-    font-weight: 600;
+/* 헤더 영역 ================================================================================== */
+.container{            /* container 클래스가 있는 div 태그는 기준 너비를 유지하는 역할을 수행 */
+    width: 1140px;
+    margin: 0 auto;    /* 수평 방향에서 중앙에 위치하게 됨 */
+}
+
+header{
+    position: fixed;     /* 스크롤로 내려도 고정되려면 fixed지만, JS로 부드럽게 하기위해 absolute*/
     color: black;
-}
-
-/* header-btn에 마우스 올렸을 시 변화 */
-.header-btn:hover {
-    text-decoration: underline;         /* 밑줄 추가 */
-    color: red;
-    text-decoration-color: red;       /* 밑줄 색상 */
-    text-decoration-thickness: 2px;     /* 밑줄 두께 */
-}
-
-/* header-btn이 눌리는 순간의 변화 */
-.header-btn:active {
-    transform: scale(0.90);             /* 버튼을 축소 */
-}
-
-
-/* ====================================== section ====================================== */
-section {
-    display: flex;
-    /* height: 83vh; */
-    flex: 1;
-    min-height: 540px; /* 최소 높이 */
     background-color: white;
+    top: 0;
+    z-index: 1;    /* 스크롤로 내릴 경우 다른 것보다 위에 존재하도록 z-index를 높게 설정*/
+    width: 100%;
+    padding: 1rem;
+}
+
+header .container{
+    display: flex;   /* 적용된 요소의 다음 요소가 항상 줄 바꿈 */
+    justify-content: space-between;  /* 아이템들을 한 줄에 나열하면서 간격을 균등하게 배치*/
+    align-items: center;   /* 수직 정렬 */
+    width: 100%;
+}
+
+header nav ul{
+    display: flex;
+}
+
+header nav ul li{
+    padding: 10px;
+}
+
+header button{
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+header h1 button{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header nav ul li button{
+    font-size: 1.2rem;
+}
+
+
+/* 메인 영역 ============================================================================================ */
+main{
+    width: 100%;
+    height: 100vh;
+    color: black;
+    /* background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(https://avatars.githubusercontent.com/u/79679194?v=4) center center; */
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%; */
+    display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    position: relative; /* 가상 요소가 부모 요소 내에서 배치되도록 설정 */
-    overflow: hidden; /* 가상 요소가 섹션을 넘어서지 못하도록 설정 */
+    text-align: center;
 }
 
-/* Section에 배경 추가 가상요소(::before) 사용 시 구조를 무너뜨리지 않을 수 있음 */
-section::before {
-    display: flex;
-    height: 80%;                      /* 가상 요소의 높이와 넓이 != 이미지의 크기 */
-    aspect-ratio: 1;                
+main::before {
+    height: 34rem;                      /* 가상 요소의 높이와 넓이 != 이미지의 크기 */
+    width: 34rem;
     content: "";                        /* 가상 요소의 텍스트 콘텐츠는 비움 즉, 시각적 목적으로만 활용 */
     background-image: url(https://avatars.githubusercontent.com/u/79679194?v=4);
     background-size: cover;             /* 이미지가 가상 요소 크기에 맞게 조절 */
     background-position: center;        /* 이미지를 가상 요소의 가운데 맞춤*/
     background-repeat: no-repeat;       /* 이미지가 반복 되어 나타나지 않게 조정 */
     border-radius: 50%;                 /* 가상 요소의 모서리를 둥굴게 */
-    opacity: 0.5;                      /* 가상 요소의 투명도 */
+    opacity: 0.3;                      /* 가상 요소의 투명도 */
     position: absolute;                 /* 가상 요소의 위치를 다른 요소으로부터 독립적으로 배치 */
     top: 50%;                           /* 가상 요소를 부모 요소의 세로 중앙에 위치 (가상 요소의 왼쪽 위 모서리 기준인듯) */
     left: 50%;                          /* 가상 요소를 부모 요소의 가로 중앙에 위치 (가상 요소의 왼쪽 위 모서리 기준인듯) */
     transform: translate(-50%, -50%);   /*중앙에 맞추기 위해 이동 */
     z-index: 1;                         /* 가상 요소의 쌓임? 순서 */
-    overflow: hidden;
     
 }
 
-/* section의 내용이 가상요소 위에 나타나도록 우선순위 설정 */
-section > * {
+/* main의 내용이 가상요소 위에 나타나도록 우선순위 설정 */
+main > * {
     z-index: 2;
 }
 
-
-/* About Me 컨테이너 부분 */
-#AM-container{
-    display: none;
-    /* background-color: green; */
-    /* overflow: auto; */
-}
-
-#AM-container.active{
-    display: flex;
-    flex-direction: row;
-    position: absolute; /* 부모 요소에 상대적인 위치 설정 */
-    width: 80%;
-    height: 90%;
-    /* overflow: auto; */
-}
-
-/* About Me 중 왼쪽 부분 설정 - Grid로 구성 */
-#AM-left{
-    width:50%;
-    /* height: 100%; */
-    /* background-color: orange; */
-    display: grid;
-    grid-template-columns: 70% 30%;
-    grid-template-rows: 35% 15% 50%;
-    /* position: relative; 절대 위치를 설정하기 위해 relative 필요 */
-}
-
-#AM-left > .grid-item{
-    background-color: white;
-    /* position: relative; grid-item 내에 이미지 위치 고정 */
-    /* overflow: hidden; 그리드 셀에서 넘치는 부분을 숨김 */
-}
-
-#AM-left > .grid-item2{
-    display: flex;
-    background-color: white;
-    grid-column: 1/3;
-
-}
-
-#AM-left > .grid-item  > h1{
-    font-size: 3rem;
-    letter-spacing: 1rem;
-}
-
-#AM-left > .grid-item  > h2{
+main h4{
     font-size: 2rem;
-    /* letter-spacing: 1rem; */
 }
 
-#AM-left > .grid-item  > h5{
-    font-size: 1.2rem;
-    /* letter-spacing: 1rem; */
+main h2{
+    font-size: 3.5rem;
+    margin: 2rem 0;
+    letter-spacing: 3px;
 }
 
-#AM-left > .grid-item  > h1, h2, h3, h4, h5, h6{
-    display: inline-block;
-    padding: 0 0 0 30px;
-    margin: 2.2rem 0 0 0;
+main p{
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 1.25rem;
 }
 
-#AM-left > .grid-item  > img{
-    display: block; /* 이미지를 블록 요소로 설정하여 여백 제거 */
-    max-width: 100%; /* 이미지의 최대 너비를 grid-item에 맞춤 */
-    max-height: 100%; /* 이미지의 최대 높이를 grid-item에 맞춤 */
-    background-color: white;
-    object-fit: contain;
-}
-
-#AM-left > .grid-item2 > .table-container{
-    /* position: absolute; 테이블을 그리드 위에 겹치게 만듬 */
-    width: 100%;
-    margin: 5px 0px;
-    /* display: block; */
-    /* height: 100%; */
-    /* top: 37%; */
-    background-color: rgb(159, 158, 158, 0.2); 
-}
-
-#AM-left > .grid-item2 > .table-container > table{
-    width: 100%;
-    height: 90%;
-    table-layout: fixed;
-    text-align: center;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center;
-
-}
-
-#AM-left > .grid-item2 > .table-container tr:nth-child(1) {
-    font-size: 1rem; 
-    font-weight: 600;
-}
-
-#AM-left > .grid-item2 > .table-container tr:nth-child(2) {
-    font-size: 2.5rem; 
-    font-weight: 900; 
-    /* font-family: 'Gmarket Sans', sans-serif; */
-}
-
-
-/* ConBox 부분 */
-#AM-left > .grid-item2 > .conbox-container {
-    background-color: white;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-#AM-left > .grid-item2 input[type="radio"] {
-    display: none;
-}
-
-#AM-left > .grid-item2 label[for*="tab"] {
-    display: inline-block;
-    width: 15%;
-    height: 8%;
-    margin: 0px;
-    /* padding: 0.3rem 0.18rem; */
-    cursor: pointer;
-    background-color:white;
+main button.download{
+    background-color: transparent;
+    border: 3px solid black;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
     color: black;
-    border: 1px solid gray;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 700;
-    box-sizing: border-box;
-    text-align: center;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-#AM-left > .grid-item2 input[id*="tab"]:checked + label {
-    background-color: darkred;
+main button.mouse{
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 2rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: upDown 1s ease-in-out infinite;
+    cursor: pointer;
+}
+
+@keyframes upDown{
+    0%{
+        bottom: 1rem;
+    }
+    50%{
+        bottom: 1.5rem;
+    }
+    100%{
+        bottom: 1rem;
+    }
+}
+
+main h2 span::after{
+    content: "";
+    height: 45px;
+    width: 3px;
+    background-color: black;
+    display: inline-block;
+    animation: blink .7s ease-in-out infinite;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
+
+/* Section 부분 =================================================================================================== */
+section{
+    font-family: "Poppins", sans-serif;
+    padding: 5rem 0;
+}
+
+section:nth-child(2n){
+    background-color: #f8f8f8;
+}
+
+
+section .title{
+    margin-bottom: 3rem;
+    background-color: yellow;
+}
+
+section .title h4{
+    font-size: 1.35rem;
+    color: #ed4848;
+    position: relative;
+}
+
+/* Section - About Me 부분 =================================================================================================== */
+
+/* 본문을 좌우로 나누기 위해서는 float속성으로 레이아웃을 분할하고 각각 너비의 절반씩을 차지하도록 지정
+   float 속성은 적용 대상의 원래 위치를 보장하지 않기에, 먼저 clear 속성으로 float 속성을 해제 */
+
+/* float 속성 해제 */
+section .aboutme-self::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/* 본문 너비 절반 지정 & 왼쪽 배치 */
+section .aboutme-self .left{
+    width: 50%;
+    float: left;
+    background-color: blue;
+}
+
+/* 본문 너비 절반 지정 & 오른쪽 배치 */
+section .aboutme-self .right{
+    width: 50%;
+    float: left;
+    padding: 0 2rem;
+    background-color: red;
+}
+
+/* Section - Project 부분 =================================================================================================== */
+
+/* clear 속성으로 float 속성값 해제 */
+section.project:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* project-inner 사각형 꾸미기 */
+section.project .project-inner{
+    width: 23.5%;
+    margin-right: 2%;
+    padding: 1rem 1rem 1.5rem 1rem;
+    float: left;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    margin-bottom: 3rem;
+}
+
+/* 4번째마다 margin-right 0 적용 */
+section.project .project-inner:nth-child(4n){
+    margin-right: 0;
+}
+
+/* 이미지 크기가 부모 요소를 넘지 않도록 100% 지정 */
+section.project .project-inner img{
+    width: 100%;
+    height: 20vh;
+    display: block;
+}
+
+/* strong 태그 색상과 간격 */
+section.project .project-inner strong{
+    color: #ff6a6a;
+    margin: 0.5rem 0;
+    display: block;
+}
+
+/* h3 태그 색상과 간격 */
+section.project .project-inner h3{
+    font-size: 0.5rem;
+}
+
+
+
+/* Section - Contact Me 부분 =================================================================================================== */
+section.contactme .contactme-me::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+section.contactme .contactme-me .left{
+    width: 30%;
+    float: left;
+}
+
+section.contactme .contactme-me .left .card{
+    border: 1px solid #ccc;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+section.contactme .contactme-me .left .card .icon i{
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+section.contactme .contactme-me .right{
+    width: 65%;
+    float: left;
+    margin-left: 5%;
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+/* form-group 사이 간격 지정 */
+section.contactme .contactme-me .right .form-group{
+    margin-bottom: 1.25rem;
+}
+
+/* label 태그가 인라인 성격이어서 외부 여백을 적용하기 위해 block으로 변경 */
+section.contactme .contactme-me .right .form-group label{
+    display: block;
+    margin-bottom: 0.85rem;
+}
+
+/* input 요소 꾸미기 */
+section.contactme .contactme-me .right .form-group input{
+    padding: 0.625rem;
+    width: 100%;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* :focus 가상 클래스 선택자로 입력 요소에 커서가 활성화되면 파란색 테두리와 그림자 효과 추가 */
+section.contactme .contactme-me .right .form-group input:focus{
+    border: 1px solid #719ECE;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+/* textarea 요소 꾸미기 */
+section.contactme .contactme-me .right .form-group textarea{
+    height: 300px;
+    width: 100%;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* textarea 요소에 커서가 활성화 되면 파란색 테두리와 그림자 효과 추가 */
+section.contactme .contactme-me .right .form-group textarea:focus{
+    outline: none;
+    border: 1px solid #718ECE;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+/* 버튼 요소 꾸미기 */
+section.contactme .contactme-me .right button{
+    width: 100%;
+    padding: 1rem;
+    background-color: #f78b00;
+    border: none;
     color: white;
 }
 
-#AM-left > .grid-item2 .conbox-container > .conbox {
-    width: 100%; 
-    height: 90%;
-    /* flex-grow:1; */
-    display: none; 
-    background-color: white;
-    box-sizing: border-box;
-}
 
 
-#AM-left > .grid-item2 input[id="tab1"]:checked ~ .con1 {
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: repeat(4, 1fr) 4fr;
-}
+/* 반응형 웹 만들기 =================================================================================================== */
+/* 
+-   여기서 container 클래스의 width을 1140px로 설정했기에 이를 기준으로 시작
+-   위의 font-size, margin, padding 의 단위를 rem으로 했으며 rem은 html태그의 font-size 속성에 영향을 받으므로 
+    이를 수정하면 화면의 크기에 따라 일정하게 변함
+-   main영역과 section영역의 container 기준 너비를 변경
+-   About Me 영역의 왼쪽과 오른쪽의 너비를 100%로 변경
+-   Project 영역의 2x4 구조를 1140px이하에서는 4x2 992px이하부터는 8x1로 변경 
+-   Contact Me 영역도 본문이 2단으로 분리되지 않도록 변경
+-   1140px 이하일때 기준으로 설정해 놓으면 그 이하의 경우 비율만 유지하면 됨
+ */
 
-#AM-left > .grid-item2 input[id="tab2"]:checked ~ .con2 {
-    display: grid;
-    /* height: 35%; */
-    grid-template-columns: 20% 80%;
-    grid-template-rows: repeat(5, 1fr);
-    /* background-color:skyblue; */
-}
-#AM-left > .grid-item2 input[id="tab3"]:checked ~ .con3 {
-    display: grid;
-    grid-template-columns: 25% 75%;
-    grid-template-rows: 3fr 1fr 2.5fr;
-    /* background-color:green; */
-}
-
-#AM-left > .grid-item2 .grid-item:nth-child(2n+1) {
-    display: flex; /* Flexbox를 사용하여 세로 정렬 */
-    border-bottom: 1px solid gray;
-    margin: 0;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: black;
-    justify-content: left; /* 가로 중앙 정렬 */
-    align-items: center;
-    text-align: left;
-}
-
-#AM-left > .grid-item2 .grid-item:nth-child(2n) {
-    display: flex; /* Flexbox를 사용하여 세로 정렬 */
-    border-bottom: 1px solid gray;
-    margin: 0;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: black;
-    justify-content: right; /* 가로 중앙 정렬 */
-    align-items: center;
-    text-align: right;
-    
-}
-
-#AM-left > .grid-item2 .grid-item2 {
-    display: flex; /* Flexbox를 사용하여 세로 정렬 */
-    border-bottom: 1px solid gray;
-    margin: 0;
-    padding: 0 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: black;
-    align-items: center;
-    text-align: left;
-    
-}
-
-#AM-left > .grid-item2 img{
-    width: 1.2rem;
-    height: 1.2rem; 
-    margin: 0 0.5rem;
-}
-
-#AM-left > .grid-item2 i{
-    font-size: 1.2rem;
-    /* color: white; */
-    margin: 0 0.5rem
-}
-
-
-/* About Me 중 오른쪽 부분 설정 */
-#AM-right{
-    display: flex; /* Flexbox 컨테이너로 설정 */
-    width:50%;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center;
-    text-align: center;
-    background-color: white;
-}
-
-
-#spider-chart-container{
-    width: 90%;
-    aspect-ratio: 1 / 1;  
-    /* width: 100vw; */
-    /* height: 500px;     */
-    background-color: white;
-}
-
-
-#PJ-container{
-    display: none;
-    background-color: white;
-    /* overflow: auto; */
-}
-
-#PJ-container.active{
-    display: flex;
-    flex-direction: row;
-    position: absolute; /* 부모 요소에 상대적인 위치 설정 */
-    width: 80%;
-    height: 90%;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center;
-    text-align: center;
-}
-
-
-#PJ-container > .grid-container{
-    display: grid;
-    background-color: whitesmoke;
-    grid-template-columns: repeat(4, 1fr);  /* 5개의 동일한 너비의 그리드 열 생성 */
-    grid-template-rows: repeat(2, 1fr);     /*2개의 동일한 높이의 그리드 행 생성  */
-    width: 100%;                             /* 그리드 레이아웃 너비를 부모 요소의 100% 사용 */
-    height: 100%;                            /* 그리드 레이아웃 높이를 부모 요소의 100% 사용 */
-    column-gap: 3rem;                       /* 그리드 아이템 간 간격 */
-    row-gap: 3rem;
-    padding: 1.25rem 1.875rem;                     /* 그리드 레이아웃 내의 내부 여백 */
-    box-sizing: border-box;                 /* 패딩이 전체 크기에 포함되도록 설정 */
-    /* margin: 0 0 0 5%; */
-}
-
-#PJ-container > .grid-container > .grid-item { 
-    background-color: white;           
-    height: auto; /* 높이를 자동으로 설정하여 콘텐츠에 맞게 조정 */
-    border: 3px solid gray;             /* 경계를 추가 */
-    /* margin: 12% 0 0 0; */
-    display: flex;                        /* 내부 요소가 중앙에 배치되도록 설정 */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    max-width: 100%; /* 그리드 아이템의 최대 너비를 그리드 셀 크기로 제한 */
-    max-height: 100%; /* 그리드 아이템의 최대 높이를 그리드 셀 크기로 제한 */
-    position: relative; /* 포지션을 relative로 설정하여 내부 요소의 절대 위치 설정 가능 */
-    cursor: pointer;
-    overflow: hidden;
-}
-
-#PJ-container > .grid-container > .grid-item img{
-    background-size: cover;             /* 이미지가 가상 요소 크기에 맞게 조절 */
-    background-position: center;        /* 이미지를 가상 요소의 가운데 맞춤*/
-    background-repeat: no-repeat;       /* 이미지가 반복 되어 나타나지 않게 조정 */
-}
-
-
-/* ====================================== footer ====================================== */
-footer {
-    display: flex;
-    background-color: white;
-    flex-direction: column;
-    height: 15vh; /* 고정된 높이, 화면 높이의 10% */
-    min-height: 100px; /* 최소 높이 */
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-
-footer img {
-    width: 2rem; /* 부모 요소의 너비에 맞춤 */
-    height: 2rem; /* 부모 요소의 높이에 맞춤 */
-    object-fit: cover; /* 부모 요소에 맞게 이미지를 자르거나 크기를 조정 */
-}
-
-footer  i {
-    font-size: 2rem;
-}
-
-footer > a {
-    text-decoration: none;
-}
-
-footer > .grid-container{
-    display: grid;
-    background-color: white;
-    grid-template-columns: repeat(4, 5rem);  /* 5개의 동일한 너비의 그리드 열 생성 */
-    grid-template-rows: 3rem;     /*2개의 동일한 높이의 그리드 행 생성  */
-}
-
-footer > .grid-container > .grid-item{
-    background-color: white;           
-    height: auto; /* 높이를 자동으로 설정하여 콘텐츠에 맞게 조정 */
-    display: flex;                        /* 내부 요소가 중앙에 배치되도록 설정 */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    max-width: 100%; /* 그리드 아이템의 최대 너비를 그리드 셀 크기로 제한 */
-    max-height: 100%; /* 그리드 아이템의 최대 높이를 그리드 셀 크기로 제한 */
-    position: relative; /* 포지션을 relative로 설정하여 내부 요소의 절대 위치 설정 가능 */
-    cursor: pointer;
-    overflow: hidden;
-}
-
-
-
-
-/* ====================================== @media part ====================================== */
-@media (max-width: 450px) {
-    body, main {
-        /* overflow-x: none; 가로 및 세로 스크롤 허용 */
-        overflow: auto; /* 가로 및 세로 스크롤 허용 */
-        width: 100%;
-        min-width: 400px;
+/* 화면 너비가 1140px 이하인 경우 */
+@media screen and (max-width: 1140px){
+    main .container{
+        width: 992px;
     }
 
-    .header-btn{
+    section .container{
+        width: 600px;
+    }
+
+    section .aboutme-self .left{
+        width: 100%;
+    }
+
+    section .aboutme-self .right{
+        width: 100%;
+    }
+
+    section .project-me .project-inner{
+        width: 48%;
+        margin-right: 0;
+    }
+
+    section .project-me .project-inner:nth-child(2n+1){
+        margin-right: 4%;
+    }
+
+    section.contactme .contactme-me .left{
+        width: 100%;
+    }
+
+    section.contactme .contactme-me .right{
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+/* 화면 너비가 992px 이하인 경우 */
+@media screen and (max-width: 992px){
+    html{
+        font-size: 14px;
+    }
+
+    main .container{
+        width: 768px;
+    }
+
+    section .project-me .project-inner{
+        width: 100%;
+    }
+    
+}
+
+/* 화면 너비가 768px 이하인 경우 */
+@media screen and (max-width: 768px){
+    html{
+        font-size: 13px;
+    }
+
+    main .container{
+        width: 576px;
+    }
+
+    section .container{
+        width: 400px;
+    }
+
+}
+
+/* 화면 너비가 576px 이하인 경우 */
+@media screen and (max-width: 576px){
+    html{
+        font-size: 12px;
+    }
+
+    main .container{
+        width: 400px;
+    }
+
+    section .container{
+        width: 360px;
+    }
+
+}
+
+/* 화면 너비가 400px 이하인 경우 */
+@media screen and (max-width: 400px){
+    html{
+        font-size: 11px;
+    }
+
+    main .container{
+        width: 320px;
+    }
+
+    section .container{
+        width: 320px;
+    }
+
+    main h4{
         font-size: 1.5rem;
     }
-    /* #AM-container{
-        display: flex;
-        overflow: auto;
-    } */
 
-    section::before {
-        width: min(95vw, 95vh);    /* 화면 너비와 높이 중 작은 값의 90%로 넓이 설정 */
-        height: min(95vw, 95vh);   /* 화면 너비와 높이 중 작은 값의 90%로 높이 설정 */
-    }
-
-    #AM-container.active{
-        display: flex;
-        flex-direction: column;
-        overflow: auto; /* 가로 및 세로 스크롤 허용 */
-        width: 100%;
-        height: 90%;
-        /* justify-content: center; */
-        align-items: center;
-        /* height: auto; */
-
-    }
-
-    #AM-left{
-        width: 95%;
-        /* max-height: 100vh; */
-        /* grid-template-columns: 70% 30%; */
-        grid-template-rows: 180px 100px auto;
-    }
-    
-    
-    #AM-left > .grid-item  > h1{
-        font-size: 1rem;
-        letter-spacing: 1rem;
-    }
-    
-    #AM-left > .grid-item  > h2{
-        font-size: 1rem;
-        /* letter-spacing: 1rem; */
-    }
-    
-    #AM-left > .grid-item  > h5{
-        font-size: 0.8rem;
-        /* letter-spacing: 1rem; */
-    }
-
-    #AM-left > .grid-item  > h1, h2{
-        display: inline-block;
-        font-size: 6vw;
-        padding: 0 0 0 30px;
-        margin: 0px -10px 0px -10px;
-    }
-
-    #AM-left > .grid-item  > h3, h4, h5, h6{
-        display: inline-block;
-        font-size: 2.5vw;
-        padding: 0 0 0 30px;
-    }
-
-
-    #AM-left > .grid-item2 > .table-container tr:nth-child(1) {
-        font-size: 0.8rem; 
-        font-weight: 600;
-    }
-    
-    #AM-left > .grid-item2 > .table-container tr:nth-child(2) {
-        font-size: 1.8rem; 
-        font-weight: 900; 
-        /* font-family: 'Gmarket Sans', sans-serif; */
-    }
-    
-    /* #AM-left > .grid-item2 > .conbox-container .grid-item2  {
-        font-size: 0.7rem;        
-    } */
-
-    #AM-left > .grid-item2 label[for*="tab"] {
-        height: 30px;
-    }
-
-    #AM-left > .grid-item2 .conbox-container > .conbox {
-        background-color: rgba(203, 203, 203, 0.15);
-    }
-
-    #AM-right{
-        width: 95%;
-    }
-
-    #spider-chart-container{
-        width: 100%;
-        /* height: auto; */
-        aspect-ratio: 1 / 1;  
-    }
-
-
-    #PJ-container{
-        overflow: auto; /* 가로 및 세로 스크롤 허용 */
-    }
-    
-    
-    #PJ-container > .grid-container{
-        display: grid;
-        /* background-color: ; */
-        grid-template-columns: repeat(1, 1fr);  /* 5개의 동일한 너비의 그리드 열 생성 */
-        grid-template-rows: repeat(8, 200px);     /*2개의 동일한 높이의 그리드 행 생성  */
-        width: 100%;                             /* 그리드 레이아웃 너비를 부모 요소의 100% 사용 */
-        height: 100%;                            /* 그리드 레이아웃 높이를 부모 요소의 100% 사용 */
-        column-gap: 3rem;                       /* 그리드 아이템 간 간격 */
-        row-gap: 1rem;
-        padding: 1.25rem 1.875rem;                     /* 그리드 레이아웃 내의 내부 여백 */
-        box-sizing: border-box;                 /* 패딩이 전체 크기에 포함되도록 설정 */
-        /* margin: 0 0 0 5%; */
+    section .title h2{
+        font-size: 3rem;
     }
 
 }
