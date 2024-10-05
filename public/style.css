@@ -312,7 +312,7 @@ section .aboutme-self .right{
     height: 60vh;
     float: left;
     padding: 0 1rem;
-    border: 2px solid rgb(215, 213, 213);
+    /* border: 2px solid rgb(215, 213, 213); */
     border-radius: 10px;
 }
 
@@ -329,13 +329,13 @@ section .right input[type="radio"] {
 section .right label[for*="tab"] {
     display: inline-block;
     width: 25%;
-    height: 30px;
-    margin: 15px 0;
-    padding: 0 10px;
+    height: 40px;
+    margin: 0;
+    padding: 5px 10px;
     cursor: pointer;
-    /* background-color:white; */
+    background-color: black;
     color: gray;
-    border-left: 1px solid gray;
+    border-left: 1px solid rgb(193, 193, 193);
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
@@ -345,7 +345,7 @@ section .right label[for*="tab"] {
 }
 
 section .right input[id*="tab"]:checked + label {
-    color: black;
+    color: white;
     text-decoration: underline;
 }
 
@@ -374,19 +374,21 @@ section .aboutme-self .right input[id="tab3"]:checked ~ .con3 {
 }
 
 section .aboutme-self .right .grid-item:nth-child(2n+1){
-    border-bottom: 1px solid gray;
+    /* border-bottom: 1px solid gray; */
     font-weight: bold;
     font-size: 1.2rem;
     padding: 0.1rem 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     background-color: #f8f8f8;
 }
 
 section .aboutme-self .right .grid-item:nth-child(2n){
-    padding: 0.7rem 0 1.5rem 0.5rem;
+    padding: 1rem 1rem;
     font-size: 1.1rem;
     justify-content: center;
     align-items: center;
+    border: 2px solid rgb(215, 213, 213);
+    border-radius: 10px;
 }
 
 
@@ -404,11 +406,12 @@ section .aboutme-self .right ul li::marker{
     font-size: 0.8rem;
 }
 
-section .aboutme-self .right .con1 .grid-item:nth-child(6),
-section .aboutme-self .right .con1 .grid-item:nth-child(8){
+section .aboutme-self .right .con1 .grid-item:nth-child(4),
+section .aboutme-self .right .con1 .grid-item:nth-child(6){
     display: flex;   /* 적용된 요소의 다음 요소가 항상 줄 바꿈 */
     justify-content: space-between;  /* 아이템들을 한 줄에 나열하면서 간격을 균등하게 배치*/
     align-items: center;   /* 수직 정렬 */
+    padding: 1rem 1rem;
 }
 
 
@@ -624,7 +627,7 @@ section.contactme .contactme-me .right button{
     section .aboutme-self .right{
         width: 100%;
         margin-top: 15px;
-        margin: 0;
+        margin-right: 0;
         padding: 0;
         border-radius: 0;
     }
