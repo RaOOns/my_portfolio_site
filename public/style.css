@@ -623,7 +623,8 @@ section.contactme .contactme-me .right button{
 
     section .aboutme-self .right{
         width: 100%;
-        margin-top: 10px;
+        margin-top: 15px;
+        margin: 0;
         padding: 0;
         border-radius: 0;
     }
