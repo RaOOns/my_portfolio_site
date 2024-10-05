@@ -607,7 +607,7 @@ section.contactme .contactme-me .right button{
     }
     
     header nav ul li button{
-        font-size: 1rem;
+        font-size: 1.25rem;
         font-weight: bold;
         margin: 0 10px;
     }
@@ -621,11 +621,13 @@ section.contactme .contactme-me .right button{
     }
 
     section .aboutme-self .left{
+        /* display: block; */
         width: 100%;
     }
 
     section .aboutme-self .left .grid-container{
         display: grid;
+        grid-template-columns: 100%;
         grid-template-rows: repeat(3, auto);
     }
     
@@ -637,6 +639,9 @@ section.contactme .contactme-me .right button{
         margin: 0;
     }
 
+    section .aboutme-self .left .item1{
+        grid-column: auto;
+    }
 
     section .aboutme-self .right{
         width: 100%;
