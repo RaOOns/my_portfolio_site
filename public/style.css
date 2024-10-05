@@ -624,6 +624,20 @@ section.contactme .contactme-me .right button{
         width: 100%;
     }
 
+    section .aboutme-self .left .grid-container{
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+    }
+    
+    section .aboutme-self .left .grid-item:nth-child(2),
+    section .aboutme-self .left .grid-item:nth-child(3){
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+
     section .aboutme-self .right{
         width: 100%;
         margin-top: 15px;
