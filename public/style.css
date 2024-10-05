@@ -422,6 +422,10 @@ section .aboutme-self .right img{
 }
 
 
+section .aboutme-self .right .grid-item a:hover{
+    text-decoration: underline;
+}
+
 /* Section - Project 부분 =================================================================================================== */
 
 /* clear 속성으로 float 속성값 해제 */
