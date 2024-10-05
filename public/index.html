@@ -11,18 +11,18 @@
     <header>
         <div class = "container">
             <h1>
-                <button data-animation-scroll="true" data-target="#main">DH</button>
+                <button data-animation-scroll="true" data-target="#main">Doggle</button>
             </h1>
             <nav>
                 <ul>
                     <li>
-                        <button data-animation-scroll="true" data-target="#aboutme">About Me</Button>
+                        <button data-animation-scroll="true" data-target="#aboutme">About me</Button>
                     </li>
                     <li>
                         <button data-animation-scroll="true" data-target="#project">Project</Button>
                     </li>
                     <li>
-                        <button data-animation-scroll="true" data-target="#contactme">Contact Me</Button>
+                        <button data-animation-scroll="true" data-target="#contactme">Contact</Button>
                     </li>
                 </ul>
             </nav>
@@ -32,26 +32,136 @@
     <main id = "main">
         <div class = "container">
             <h4>안녕하세요.</h4>
-            <!-- <h2>저는 <span> 데이터 사이언티스트 이 도 현 입니다.</span></h2> -->
-            <h2>저는 <span></span></h2>
-            <p> 숨겨진 정보를 찾기 위해 데이터 속을 유영하기 위해 <br>
-                통계학, ML/DL, 모델링 등 다양한 능력을 갖춘 Data Scientist</p>
-            <button class = "download">DOWNLOAD CV</button>
-            <button class = "mouse"><i class = "fa-solid fa-computer-mouse"></i></button>
+            
+            <h2><span></span></h2>
+            <p> 숨겨진 정보를 찾기 위해 데이터 속을 유영하는 <br>
+                Data Scientist 이도현 입니다!</p>
+            <div class = "urlbox">
+                <a href = "https://github.com/RaOOns">  <i class="fa-brands fa-github"></i>  </a> &nbsp;
+                <a href = "https://www.instagram.com/le_2ee/"> <i class="fa-brands fa-instagram"></i> </a> &nbsp;
+                <a href = "https://www.notion.so/DATA-ANALYST-STATISTICIAN-f9e4c280cf0d4d44a801586241258a02"> <img src="./img/notion.svg" alt="Notion"> </a> &nbsp;
+                <a href = "https://laoonlee.tistory.com/">  <img src="./img/tistory.svg" alt="Ti-stroy">  </a>
+            </div>
+            <button class = "arrow"><i class="fa-solid fa-angles-down"></i></button>
         </div>
     </main>
 
     <section id="aboutme" class = "aboutme">
         <div class = "container">
             <div class = "title">
-                <h4>나의 능력치</h4>
+                <h4>This is me!</h4>
             </div>
             <div class = "aboutme-self">
                 <div class = "left">
-                    왼쪽부분
+                    <div class="grid-container">
+                        <div class="grid-item item1">
+                            <h2>이도현 Lee Dohyun </h2>
+                            <h3>정보통계학과 학사 | 충북대학교</h3>
+                            <h3>통계학과 석사 | 충북대학교</h3>
+                            <h3>경력 1년차 | Data Scientist | Data Analyst | Statistician</h3>
+                        </div>
+                        <!-- <div class="grid-item">
+                            <img src="./img/myprofile_img.png" alt="It's me!">
+                        </div> -->
+                        <div class="grid-item">
+                            <div class="spider">
+                                <canvas id="spiderChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="barchart">
+                                <canvas id="myBarChart" width="400" height="200"></canvas>
+                            </div>
+                            <div class="myimg">
+                                <img src="./img/myprofile_img.png" alt="It's me!">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class = "right">
-                    오른쪽 부분
+                    <div class = "conbox-container">
+                        <input type="radio" name="tabmenu" id = "tab1" checked>
+                        <label for="tab1">특징</label>
+                        <input type="radio" name="tabmenu" id = "tab2">
+                        <label for="tab2">경력</label>
+                        <input type="radio" name="tabmenu" id = "tab3">
+                        <label for="tab3">대학원</label>
+
+                        <div class = "conbox con1">
+                            <div class="grid-item">기본 정보</div>
+                            <div class="grid-item">1994.04.15 &nbsp;|&nbsp; <strong>INTJ</strong> &nbsp;|&nbsp; 충청북도</div>
+                            <div class="grid-item">취미</div>
+                            <div class="grid-item">
+                                <!-- 독서 | 공부 | 운동 | 여행 -->
+                                <i class="fa-solid fa-book"></i>
+                                <i class="fa-solid fa-dumbbell"></i>
+                                <i class="fa-solid fa-person-swimming"></i>
+                                <i class="fa-solid fa-person-running"></i>
+                                <i class="fa-solid fa-plane"></i>
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <div class="grid-item"> Skills  </div>
+                            <div class="grid-item">
+                                <i class="fa-brands fa-python"></i>
+                                <i class="fa-solid fa-registered"></i>
+                                <img src="./img/sas2.svg" alt="SAS">
+                                <i class="fa-solid fa-database"></i>
+                                <i class="fa-brands fa-html5"></i>
+                                <i class="fa-brands fa-css3-alt"></i>
+                                <i class="fa-brands fa-js"></i>
+                                <img src="./img/spotfire.png" alt="Spotfire"> 
+                                <img src="./img/tableau.svg" alt="Tableau"> 
+                            </div>
+                            <div class="grid-item">자격증</div>
+                            <div class="grid-item">
+                                <ul>
+                                    <li>빅데이터 분석기사</li>
+                                    <li>정보처리기사</li>
+                                    <li>SQLD</li>
+                                    <li>SAS BaseCertification Programmer</li>
+                                    <li>사회조사분석사 2급</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class = "conbox con2">
+                            <div class="grid-item">프리랜서</div>
+                            <div class="grid-item">
+                                <ul>
+                                    <li>
+                                        P&D solution | 2023.11 - 2024.02<br/>
+                                        충남대학교 데이터 기반 학생 학업 모니터링 및 예측 시스템 구축 사업
+                                    </li>
+                                    <li>
+                                        P&D solution | 2024.07 - 2024.08<br/>
+                                        Spotfire 전처리 모듈 개발
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid-item">정규직</div>                             
+                            <div class="grid-item"></div>           
+                        </div>
+                        <div class = "conbox con3">
+                            <div class="grid-item">논문</div>
+                            <div class="grid-item">
+                                <ul>
+                                    <li><strong>[SCIE]</strong> Evaluation of Odor Prediction Model Performance and Variable Importance according to Various Missing Imputation Methods</li>
+                                    <li><strong>[SCIE]</strong> Prediction of Complex Odor from Pig Barn Using Machine Learning and Identifying the Influence of Variables Using Explainable Artificial Intelligence</li>
+                                    <li><strong>[SCIE]</strong> Estimating Chlorophyll-a Concentration from Hyperspectral Data Using Various Machine Learning Techniques: A Case Study at Paldang Dam, South Korea</li>
+                                    <li><strong>[SCOPUS]</strong> Multiclass Classification by Various Machine Learning Algorithms and Interpretation of the Risk Factors of Pedestrian Accidents Using Explainable AI</li>
+                                </ul>
+                            </div>
+                            <div class="grid-item">연구과제</div>
+                            <div class="grid-item">
+                                <ul>
+                                    <li>데이터 기반 복합악취 예측 및 생산성 비교분석</li>
+                                    <li>녹조 예측 기계학습 모델</li>
+                                    <li>AI를 활용한 보 구간 물환경 데이터 통합분석 연구</li>
+                                    <li>식자재 수요예측을 위한 통계분석 컨설팅</li>
+                                    <li>관비재배를 위한 양.수분 정밀제어기술 개발</li>
+                                </ul>
+                            </div>                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,48 +170,64 @@
     <section id="project" class="project">
         <div class = "container">
             <div class="title">
-                <h4>Project Portfolio</h4>
+                <h4>Project</h4>
             </div>
             <div class="project-me">
                 <div class="project-inner">
-                    <img src="./img/CNU.png" alt = "CNU">
+                    <a href = "https://www.notion.so/raoon/072c0aec3a35490a88fb4837803152bc" >
+                        <img src="./img/CNU.png" alt = "CNU">
+                    </a>
                     <strong>Modeling</strong>
                     <h3>Recommendation System & Prediction model</h3>
                 </div>
                 <div class="project-inner">
-                    <img src="./img/odor.png" alt = "odor">
+                    <a href = "https://www.notion.so/raoon/1-2-8e73a716c2e54021909e7ce57d4e34b1">
+                        <img src="./img/odor.png" alt = "odor">
+                    </a>
                     <strong>Pipeline</strong>
-                    <h3>Prediction model & p</h3>
+                    <h3>Prediction model & Statistic</h3>
                 </div>
                 <div class="project-inner">
-                    <img src="./img/hyperspectral.png" alt = "hyperspectral">
+                    <a href = "https://www.notion.so/raoon/1-2-22167eb9751a4cf581aea3dc795a3907">
+                        <img src="./img/hyperspectral.png" alt = "hyperspectral">
+                    </a>
                     <strong>Pipeline</strong>
-                    <h3>Prediction model</h3>
+                    <h3>Prediction model & Statistic</h3>
                 </div>
                 <div class="project-inner">
-                    <img src="./img/weir.png" alt = "weir">
+                    <a href = "https://www.notion.so/raoon/4fa9c9b47f394b3689bf894517a3019f">
+                        <img src="./img/weir.png" alt = "weir">
+                    </a>
                     <strong>Analysis</strong>
+                    <h3>Statistical Analysis</h3>
+                </div>
+                <div class="project-inner">
+                    <a href = "https://www.notion.so/raoon/258c9048557e41eba65fdddc690549d0">
+                        <img src="./img/traffic.png" alt = "traffic">
+                    </a>
+                    <strong>Analysis</strong>
+                    <h3>Prediction model & XAI</h3>
+                </div>
+                <div class="project-inner">
+                    <a href = "https://www.notion.so/raoon/dc508b07868a4ec2a090569a061d597a">
+                        <img src="./img/smartfarm.png" alt = "smartfarm">
+                    </a>
+                    <strong>Consulting</strong>
+                    <h3>Logistic Regression</h3>
+                </div>
+                <div class="project-inner">
+                    <a href = "https://www.notion.so/raoon/f56a2a1c60924e20999dc9d176ed6a16">
+                        <img src="./img/food_prediction.png" alt = "food prediction">
+                    </a>
+                    <strong>Consulting</strong>
                     <h3>Prediction model</h3>
                 </div>
                 <div class="project-inner">
-                    <img src="./img/traffic.png" alt = "traffic">
-                    <strong>Modeling</strong>
-                    <h3>Recommendation System & Prediction model</h3>
-                </div>
-                <div class="project-inner">
-                    <img src="./img/smartfarm.png" alt = "smartfarm">
-                    <strong>Modeling</strong>
-                    <h3>Recommendation System & Prediction model</h3>
-                </div>
-                <div class="project-inner">
-                    <img src="./img/food_prediction.png" alt = "food prediction">
-                    <strong>Modeling</strong>
-                    <h3>Recommendation System & Prediction model</h3>
-                </div>
-                <div class="project-inner">
-                    <img src="./img/collusion.png" alt = "collusion">
-                    <strong>Modeling</strong>
-                    <h3>Recommendation System & Prediction model</h3>
+                    <a href = "https://www.notion.so/raoon/8d1e4204ba1748a9af3543526811a023">
+                        <img src="./img/collusion.png" alt = "collusion">
+                    </a>
+                    <strong>Consulting</strong>
+                    <h3>Statistical Analysis</h3>
                 </div>
             </div>
         </div>
@@ -132,6 +258,17 @@
                             <p>010-6554-9549</p>
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="info-text">
+                            <h3>Social Media</h3>
+                        </div>
+                        <div class="urls">
+                            <a href = "https://github.com/RaOOns">  <i class="fa-brands fa-github"></i>  </a> &nbsp;
+                            <a href = "https://www.instagram.com/le_2ee/"> <i class="fa-brands fa-instagram"></i> </a> &nbsp;
+                            <a href = "https://www.notion.so/DATA-ANALYST-STATISTICIAN-f9e4c280cf0d4d44a801586241258a02"> <img src="./img/notion.svg" alt="Notion"> </a> &nbsp;
+                            <a href = "https://laoonlee.tistory.com/">  <img src="./img/tistory.svg" alt="Ti-stroy">  </a>
+                        </div>
+                    </div>
 
                 </div>
                 <div class ="right">
@@ -141,12 +278,8 @@
                             <input type="text" id="name">
                         </div>
                         <div class = "form-group">
-                            <label for="email">E-mail</label>
-                            <input type="text" id="email">
-                        </div>
-                        <div class = "form-group">
                             <label for="msg">Message</label>
-                            <textarea id="msg"></textarea>
+                            <textarea id="msg">아직 이 기능은 사용하실 수 없습니다! :)</textarea>
                         </div>
                         <button type="submit">전송</button>
                     </form>                    
@@ -154,6 +287,7 @@
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./script.js"></script>
     
 </body>

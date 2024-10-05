@@ -59,3 +59,154 @@ for (let i = 0; i < scrollMoveE1.length; i++){
         animationMove(target);
     });
 }
+
+
+
+// 스파이더 차트 ======================================================================================================
+document.addEventListener('DOMContentLoaded', (event) => {
+    const ctx = document.getElementById('spiderChart').getContext('2d');
+    const spiderChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            // labels: ['Python\n99%', 'R\n90%', 'SAS\n70%', 'SQL\n85%', 'HTML/CSS/JS\n60%', "Spotfire\n90%", "Tableau\n75%"],
+            labels: ['Python', 'R', 'SAS', 'SQL', 'HTML/CSS/JS', 'Spotfire', 'Tableau'],
+            datasets: [{
+                label: '',
+                data: [99, 90, 70, 85, 60, 90, 75],
+                backgroundColor: 'rgba(139, 0, 0, 0.5)',
+                borderColor: 'rgba(139, 0, 0, 0.5)',
+                borderWidth: 3,
+                pointRadius: 0 
+            }]
+        },
+        options: {
+            plugins:{
+                legend: {
+                    display: false   // 범례 숨기기
+                }
+            },
+
+            scales: {    
+                r: {
+                    angleLines: {
+                        display: false
+                    },
+
+                    ticks: {
+                        display: true,  // 라벨 보이기
+                        font: {
+                            size: 20 // 글자 크기
+                        },
+                        stepSize: 35, // 범위 간격을 설정
+                        max: 100,  // 최대 값 설정
+                        min: 0,    // 최소 값 설정
+                        callback: function(value) {
+                            // ticks 값을 0, 35, 70, 100만 표시
+                            if (value === 0 || value === 35 || value === 70 || value === 100) {
+                                return value;
+                            }
+                            return '';
+                        }
+
+                    },
+                    
+                    grid: {
+                        color: 'black', // 라벨 경계의 선 색상
+                        lineWidth: 1.5   // 라벨 경계의 선 굵기
+                    },
+
+                    pointLabels: {
+                        font:{
+                            color: 'black',
+                            size: 18,   // 레이블 글자 크기 설정
+                            weight: "bold"
+                        },
+                    },
+                    suggestedMin: 0,     // 여기서 min max시 실제 값과는 상관없이 이 범위 만큼 그래프에 그려짐
+                    suggestedMax: 100
+    
+                }
+            }
+        }
+    });
+});
+
+
+
+// 가로 막대 그래프 ======================================================================================================
+const ctx = document.getElementById('myBarChart').getContext('2d');
+const myBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['논문', '연구과제', '프로젝트', '자격증', '분석 대회'],
+        datasets: [{
+            label: '',  // 범례를 제거하기 위해 빈 값 설정
+            data: [4, 5, 2, 5, 10],
+            backgroundColor: 'black',
+            borderColor: 'black',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,  // 부모 요소 크기에 맞춰 차트 크기 조정
+        maintainAspectRatio: false,  // 부모 요소의 크기에 맞추기 위해 비율 고정 해제
+        indexAxis: 'y', // 가로 막대그래프
+        scales: {
+            x: {
+                beginAtZero: true,
+                grid: {
+                    display: true // X축의 선은 표시
+                },
+                ticks: {
+                    display: false // X축 값 숨김
+                }
+            },
+            y: {
+                grid: {
+                    display: true // Y축의 선은 표시
+                },
+                ticks: {
+                    display: false // Y축 값 숨김
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: false // 범례 숨김
+            },
+            tooltip: {
+                enabled: false // 툴팁 비활성화
+            }
+        }
+    },
+    plugins: [{
+        afterDatasetsDraw: function(chart) {
+            const ctx = chart.ctx;
+            chart.data.datasets.forEach(function(dataset, i) {
+                const meta = chart.getDatasetMeta(i);
+                meta.data.forEach(function(bar, index) {
+                    const value = dataset.data[index];
+                    const label = chart.data.labels[index];
+
+                    ctx.save();  // 이전 상태 저장
+                    ctx.font = 'bold 15px Arial';
+                    ctx.textAlign = 'left';
+
+                    // 차트 너비를 넘어가지 않도록 조정
+                    let textPositionX = bar.x + 5; // 막대 끝에서 5px 오른쪽
+                    let textColor = '#000'; // 기본 폰트 색상
+
+                    // 텍스트가 차트 영역을 넘는지 확인
+                    if (textPositionX + ctx.measureText(`${label} ${value}`).width > chart.chartArea.right) {
+                        textPositionX = chart.chartArea.right - ctx.measureText(`${label} ${value}`).width - 5;
+                        textColor = '#fff'; // 차트 바깥으로 넘어갈 경우 폰트 색상을 흰색으로 설정
+                    }
+
+                    ctx.fillStyle = textColor; // 폰트 색상 설정
+                    ctx.fillText(`${label} ${value}`, textPositionX, bar.y + 5);
+                    ctx.restore();  // 이전 상태 복원
+                });
+            });
+        }
+    }]
+});
